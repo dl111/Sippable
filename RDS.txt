@@ -1,0 +1,5 @@
+a file with the RDS username/password so i don't forget
+
+username = admin
+
+password = adminadmin
