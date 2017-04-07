@@ -27,6 +27,14 @@ public class App
         Session sess = HibernateUtil.getSession();
         Drink dr = (Drink)sess.get(Drink.class, 100000);
         System.out.println(dr.toString());
+        
+        Users user = (Users)sess.get(Users.class, 1000000);
+        
+        System.out.println(user);
+        
+        
+        
+        
         sess.close();
 //        HoneyPot hp = (HoneyPot)sess.get(HoneyPot.class, 50);
 //       Cave c = (Cave)sess.get(Cave.class, 1100);
