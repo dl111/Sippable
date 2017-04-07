@@ -1,7 +1,0 @@
-a file with the RDS username/password so i don't forget
-
-end point =  sippablerds.csooorxl70nv.us-east-1.rds.amazonaws.com
-
-username = admin
-
-password = adminadmin
