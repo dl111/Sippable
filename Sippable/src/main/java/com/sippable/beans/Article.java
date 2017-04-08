@@ -36,6 +36,14 @@ public class Article {
 		return "Article [aID=" + aID + ", s3Location=" + s3Location + ", viewCount=" + viewCount + ", datePub="
 				+ datePub + ", aStatus=" + aStatus + "]";
 	}
+	public Article(int aID, String s3Location, int viewCount, String datePub, int aStatus) {
+		super();
+		this.aID = aID;
+		this.s3Location = s3Location;
+		this.viewCount = viewCount;
+		this.datePub = datePub;
+		this.aStatus = aStatus;
+	}
 	
 	public Article() {
 	
