@@ -19,6 +19,8 @@
         <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
         <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
 		<mapping class="com.sippable.beans.Drink"/>
+	    <mapping class="com.sippable.beans.User"/>
+	    <mapping class="com.sippable.beans.Article"/>
        <!-- <mapping resource="person.hbm.xml"/>    -->  
 		
       <!--    <mapping class="beans.HoneyPot"/>
