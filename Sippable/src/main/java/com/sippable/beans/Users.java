@@ -54,6 +54,17 @@ public class Users {
 		this.isActive = isActive;
 		this.typeid = typeid;
 	}
+	
+	public Users(String username, String firstName, String lastName, String email, String pass, int isActive, int typeid){
+
+		this.username = username;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.pass = pass;
+		this.isActive = isActive;
+		this.typeid = typeid;
+	}
 
 	public int getUserid() {
 		return userid;
@@ -119,6 +130,13 @@ public class Users {
 		this.typeid = typeid;
 	}
 
+	@Override
+	public String toString() {
+		return "Users [userid=" + userid + ", username=" + username + ", firstName=" + firstName + ", lastName="
+				+ lastName + ", email=" + email + ", pass=" + pass + ", isActive=" + isActive + ", typeid=" + typeid
+				+ "]";
+	}
+
 /*	public String getUserType() {
 		return userType;
 	}
@@ -127,10 +145,7 @@ public class Users {
 		this.userType = userType;
 	};
 	*/
-	@Override
-	public String toString(){
-		return username + " " + firstName + " " + lastName;
-	}
+
 	
 	
 }

@@ -20,6 +20,8 @@
         <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
 		<mapping class="com.sippable.beans.Drink"/>
 		<mapping class = "com.sippable.beans.Users"/>
+		<mapping class = "com.sippable.beans.Rating"/>
+		
        <!-- <mapping resource="person.hbm.xml"/>    -->  
 		
       <!--    <mapping class="beans.HoneyPot"/>

@@ -1,21 +1,9 @@
 package com.sippable.test;
 
-//import java.util.List;
-//
-//import javax.persistence.NamedQueries;
-//import javax.persistence.NamedQuery;
-//
-//import org.hibernate.Criteria;
-//import org.hibernate.Query;
-//import org.hibernate.SQLQuery;
-import org.hibernate.Session;
-//import org.hibernate.criterion.Restrictions;
+import java.util.List;
 
-
-
-
-import com.sippable.beans.*;
-import com.sippable.utils.HibernateUtil;
+import com.sippable.beans.Rating;
+import com.sippable.service.RatingServiceImpl;
 /**
  * Hello world!
  *
@@ -24,18 +12,17 @@ public class App
 {
     public static void main( String[] args )
     {
-        Session sess = HibernateUtil.getSession();
-        Drink dr = (Drink)sess.get(Drink.class, 100000);
-        System.out.println(dr.toString());
+        RatingServiceImpl serv = new RatingServiceImpl();
         
-        Users user = (Users)sess.get(Users.class, 1000000);
+        List<Rating> ratings = serv.getListOfUserRatings(100);
+        double avg = serv.getAvgRatingOfDrink(200);
+        for(Rating r : ratings){
+        	System.out.println(r);
+        }
+        System.out.println(avg);
         
-        System.out.println(user);
         
         
-        
-        
-        sess.close();
 //        HoneyPot hp = (HoneyPot)sess.get(HoneyPot.class, 50);
 //       Cave c = (Cave)sess.get(Cave.class, 1100);
         //Bear b = (Bear)sess.get(Bear.class, 1550);
