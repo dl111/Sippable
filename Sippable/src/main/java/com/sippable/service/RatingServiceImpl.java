@@ -2,9 +2,13 @@ package com.sippable.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.sippable.beans.Rating;
 import com.sippable.dao.RatingDaoImpl;
 
+
+@Service
 public class RatingServiceImpl implements RatingService{
 	
 	RatingDaoImpl dao = new RatingDaoImpl();

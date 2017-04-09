@@ -3,10 +3,13 @@ package com.sippable.service;
 import java.util.List;
 
 import org.hibernate.type.AdaptedImmutableType;
+import org.springframework.stereotype.Service;
 
 import com.sippable.beans.Article;
 import com.sippable.dao.ArticleDaoImpl;
 
+
+@Service
 public class ArticleServiceImpl implements ArticleService {
 
 	ArticleDaoImpl Ad = new ArticleDaoImpl();
