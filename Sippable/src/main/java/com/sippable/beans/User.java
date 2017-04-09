@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.junit.experimental.theories.Theories;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Component;
 public class User implements Serializable{
 
 	/**
-	 * 
+	 * CLASSEXAMPLE
 	 */
 	private static final long serialVersionUID = 9075629692859076685L;
 	

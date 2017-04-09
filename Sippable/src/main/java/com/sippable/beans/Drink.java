@@ -1,5 +1,7 @@
 package com.sippable.beans;
 
+import java.io.Serializable;
+
 //import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,8 +16,14 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="DRINK")
-public class Drink {
+public class Drink implements Serializable{
 	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1366465671643106730L;
+
 	@Id
 	@Column(name="DRINK_ID")
 	@SequenceGenerator(name="DRINKID_SEQ", sequenceName="DRINKID_SEQ")
