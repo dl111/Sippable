@@ -1,5 +1,7 @@
 package com.sippable.beans;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,8 +12,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="USERS")
-public class Users {
+public class Users implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7182656817277337394L;
+
 	@Id
 	@Column(name="USER_ID")
 	@SequenceGenerator(name="USER_SEQ", sequenceName = "USER_SEQ")

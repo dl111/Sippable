@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sippable.*;
+import com.sippable.beans.User;
 import com.sippable.beans.Users;
+import com.sippable.service.UserService;
 
 
 @Controller
@@ -20,7 +22,51 @@ import com.sippable.beans.Users;
 public class LoginController {
 	
 	@Autowired
-	Users emptyUser;
+	User emptyUser;
+	
+	@Autowired
+	UserService userService;
+	
+	@ModelAttribute("someInfo")
+	public String addInfoToRequestScope(){
+		
+		System.out.println("adding somthing to the modelmap");
+		return "This is the information added";
+		
+	}
+
+	@RequestMapping(method = RequestMethod.GET)
+	public String getLoginPage(ModelMap modelMap){
+		
+		System.out.println(modelMap.get("someInfo"));
+		System.out.println("THis was a get request");
+		modelMap.addAttribute("user", emptyUser);
+		return "login";
+	}
+	
+	@RequestMapping(method = RequestMethod.POST)
+	public String doLogin(@Valid User user, BindingResult bindingResult, ModelMap modelMap, HttpSession session){
+		
+		System.out.println("This was a post request");
+		if (bindingResult.hasErrors()){
+			
+			return "login";
+			
+		}
+		User authUser = userService.auth(user);
+		if (authUser != null) {
+			
+			System.out.println(user.getUsername());
+			modelMap.addAttribute("user", user);
+			session.setAttribute("alsoUser", user);
+			return "home";
+			
+		}
+		else{
+			modelMap.addAttribute("errorMessage", "Username/password incorrect");
+			return "login";
+		}
+	}
 	
 
 	

@@ -19,8 +19,7 @@ import com.sippable.beans.Users;
 @RequestMapping(value = "/register")
 public class RegisterController {
 	
-	@Autowired
-	Users emptyUser;
+
 	
 
 	
