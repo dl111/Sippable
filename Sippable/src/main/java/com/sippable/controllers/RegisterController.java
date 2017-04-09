@@ -21,6 +21,14 @@ public class RegisterController {
 	
 
 	
-
+	@RequestMapping(method = RequestMethod.GET)
+	public String getLoginPage(ModelMap modelMap){
+		
+		System.out.println(modelMap.get("someInfo"));
+		System.out.println("THis was a get request");
+		//modelMap.addAttribute("user", emptyUser);
+		return "register";
+	}
+	
 	
 }
