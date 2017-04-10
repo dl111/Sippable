@@ -54,19 +54,20 @@ public class LoginController {
 			return "login";
 			
 		}
-		Users authUser = userService.auth(user);
-		if (authUser != null) {
-			
-			System.out.println(user.getUsername());
-			modelMap.addAttribute("user", user);
-			session.setAttribute("alsoUser", user);
-			return "home";
-			
-		}
-		else{
-			modelMap.addAttribute("errorMessage", "Username/password incorrect");
-			return "login";
-		}
+//		//Users authUser = userService.auth(user);
+//		if (authUser != null) {
+//			
+//			System.out.println(user.getUsername());
+//			modelMap.addAttribute("user", user);
+//			session.setAttribute("alsoUser", user);
+//			return "home";
+//			
+//		}
+//		else{
+//			modelMap.addAttribute("errorMessage", "Username/password incorrect");
+//			return "login";
+//		}
+		return "login";
 	}
 	
 
