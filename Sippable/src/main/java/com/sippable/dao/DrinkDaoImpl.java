@@ -28,15 +28,12 @@ public class DrinkDaoImpl implements DrinkDao{
 	 * adds a drink to the database
 	 */
 	@Override
-	public void addDrink(String name, int drinkType, String aroma, String apperance, String color, String brewer,
-			double alcholContent, double ibu, int bevType) {
-		
-		Drink dr = new Drink(0, name, aroma, color, brewer, 0, alcholContent, ibu, drinkType, bevType);
-		
+	public void addDrink(Drink drink) {
+				
 		Session sess = HibernateUtil.getSession();	
 		Transaction tx = sess.beginTransaction();
 		
-		sess.save(dr);
+		sess.save(drink);
 		sess.flush();
 		tx.commit();
 		

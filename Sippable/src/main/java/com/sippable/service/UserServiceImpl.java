@@ -1,8 +1,12 @@
 package com.sippable.service;
 
+import org.springframework.stereotype.Service;
+
 import com.sippable.beans.Users;
 import com.sippable.dao.UserDaoImpl;
 
+
+@Service
 public class UserServiceImpl implements UserService{
 
 	UserDaoImpl dao = new UserDaoImpl();

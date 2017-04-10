@@ -7,8 +7,7 @@ import com.sippable.beans.Drink;
 public interface DrinkDao {
 
 	public Drink getDrink(int id);
-	public void addDrink(String name, int drinkType, String aroma, String apperance, String color,
-						 String brewer, double alcholContent, double ibu, int bevType);
+	public void addDrink(Drink drink);
 	public List<Drink> getAllDrinks();
 	
 	//TODO add update functions

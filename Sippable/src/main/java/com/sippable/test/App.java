@@ -2,8 +2,14 @@ package com.sippable.test;
 
 import java.util.List;
 
+import org.hibernate.Session;
+
+import com.sippable.beans.Description;
+import com.sippable.beans.Drink;
+import com.sippable.beans.Image;
 import com.sippable.beans.Rating;
 import com.sippable.service.RatingServiceImpl;
+import com.sippable.utils.HibernateUtil;
 /**
  * Hello world!
  *
@@ -12,14 +18,27 @@ public class App
 {
     public static void main( String[] args )
     {
-        RatingServiceImpl serv = new RatingServiceImpl();
-        
-        List<Rating> ratings = serv.getListOfUserRatings(100);
-        double avg = serv.getAvgRatingOfDrink(200);
-        for(Rating r : ratings){
-        	System.out.println(r);
-        }
-        System.out.println(avg);
+    
+    		Image image = new Image();
+    		Description description = new Description();
+    		
+    		image.setSource("asdasd");
+    		image.setUrl("ssfsdf");
+    		
+    		description.setDescription("asdasdasdasdfuck you");
+    		description.setSource("asdasdasdadasd");
+    		
+    		Drink drink = new Drink();
+    		drink.setImage(image);
+    		drink.setDescription(description);
+    		
+    		drink.setBevType(1);
+    		drink.setDrinkType(1);
+    		
+    		Session session = HibernateUtil.getSession();
+    		session.beginTransaction();
+    		session.save(drink);
+    		session.getTransaction().commit();
         
         
         
