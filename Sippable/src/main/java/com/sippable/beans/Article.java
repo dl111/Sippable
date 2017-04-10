@@ -11,7 +11,6 @@ import javax.persistence.Id;
 //import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.xml.crypto.Data;
 
 @Entity
 @Table(name="ARTICLES")

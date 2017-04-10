@@ -5,8 +5,9 @@ import java.util.List;
 import org.hibernate.type.AdaptedImmutableType;
 import org.springframework.stereotype.Service;
 
-import com.sippable.beans.Article;
 import com.sippable.dao.ArticleDaoImpl;
+
+import com.sippable.beans.Article;
 
 
 @Service

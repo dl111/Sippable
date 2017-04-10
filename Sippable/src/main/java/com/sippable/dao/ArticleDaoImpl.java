@@ -6,8 +6,9 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import com.sippable.beans.Article;
 import com.sippable.utils.HibernateUtil;
+
+import com.sippable.beans.Article;
 
 
 public class ArticleDaoImpl implements ArticleDao {
