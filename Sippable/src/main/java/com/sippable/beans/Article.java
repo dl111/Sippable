@@ -1,5 +1,7 @@
 package com.sippable.beans;
 
+import java.io.Serializable;
+
 //import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,8 +17,12 @@ import javax.xml.crypto.Data;
 
 @Entity
 @Table(name="ARTICLES")
-public class Article {
+public class Article implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6004047194834516542L;
 	@Id
 	@Column(name="A_ID")
 	@SequenceGenerator(name="ARTICLE_SEQ", sequenceName="ARTICLE_SEQ")
