@@ -51,6 +51,14 @@
 			<artifactId>hibernate-validator</artifactId>
 		</dependency>
 
+
+<dependency>
+	<groupId>com.sippables</groupId>
+	<artifactId>Sippable</artifactId>
+	<scope>system</scope>
+	<version>0.0.1-SNAPSHOT</version>
+<systemPath>${basedir}/lib/ojdbc7.jar</systemPath>
+</dependency>
 		<dependency>
 
 			<groupId>junit</groupId>
