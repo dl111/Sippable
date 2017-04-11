@@ -9,9 +9,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
-import javax.persistence.Table; 
+import javax.persistence.Table;
+
+import org.springframework.stereotype.Component; 
 
 @Entity
+@Component
 @Table(name="USERS")
 public class Users implements Serializable{
 	

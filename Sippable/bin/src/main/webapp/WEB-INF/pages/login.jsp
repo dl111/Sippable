@@ -12,6 +12,21 @@
 	type="text/css" rel="stylesheet" />
 </head>
 <body>
-TESTING LOGIN BULLSHIT
+	<c:if test="${errorMessage != null}">
+		<div class="alert alert-danger">${errorMessage}</div>
+	</c:if>
+
+	<h1>Login</h1>
+	<form:form action="login" method="POST">
+    Username: <form:input path="username" />
+		<form:errors path="username" cssClass="alert alert-danger"
+			element="div" />
+		<br />
+    Password: <form:password path="password" />
+		<form:errors path="password" cssClass="alert alert-danger"
+			element="div" />
+		<br />
+		<input type="submit" value="Login" />
+	</form:form>
 </body>
 </html>

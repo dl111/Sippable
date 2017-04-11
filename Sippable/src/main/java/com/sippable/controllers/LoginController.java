@@ -1,5 +1,6 @@
 package com.sippable.controllers;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -19,44 +20,45 @@ import com.sippable.service.UserServiceImpl;
 
 
 @Controller
-@RequestMapping(value = "/login")
+@RequestMapping(value = "/")
 public class LoginController {
 	
-	
-	Users emptyUser;
+	@Autowired
+	Users user;
 	
 	@Autowired
 	UserServiceImpl userService;
 	
-	@ModelAttribute("someInfo")
+/*	@ModelAttribute("someInfo")
 	public String addInfoToRequestScope(){
 		
 		System.out.println("adding somthing to the modelmap");
 		return "This is the information added";
 		
-	}
+	}*/
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String getLoginPage(ModelMap modelMap){
 		
-		System.out.println(modelMap.get("someInfo"));
-		System.out.println("THis was a get request");
-		emptyUser = new Users();
-		emptyUser.setPass("pass");
-		emptyUser.setUsername("username");
-		modelMap.addAttribute("user", emptyUser);
-		return "login";
+		modelMap.addAttribute("user",new Users());
+		
+		return "index";
 	}
 	
-	@RequestMapping(method = RequestMethod.POST)
-	public String doLogin(@Valid Users user, BindingResult bindingResult, ModelMap modelMap, HttpSession session){
-		
-		System.out.println("This was a post request");
+	@RequestMapping(method = RequestMethod.POST ,value = "/login")
+	public String doLogin(ModelMap modelMap, HttpSession session,HttpServletRequest request ){
+		System.out.println(modelMap.isEmpty());
+	String email=(String)	request.getParameter("email");
+	String password =(String) 	request.getParameter("password");
+	//	modelMap.addAttribute("users", user);
+System.out.println("Email -> " + email + "Password -> " + password);
+System.out.println(modelMap.get("user"));
+/*		System.out.println("This was a post request");
 		if (bindingResult.hasErrors()){
 			
 			return "login";
 			
-		}
+		}*/
 //		//Users authUser = userService.auth(user);
 //		if (authUser != null) {
 //			
