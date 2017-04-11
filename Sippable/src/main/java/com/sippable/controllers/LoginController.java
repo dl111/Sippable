@@ -22,7 +22,7 @@ import com.sippable.service.UserServiceImpl;
 @RequestMapping(value = "/login")
 public class LoginController {
 	
-	@Autowired
+	
 	Users emptyUser;
 	
 	@Autowired
@@ -41,6 +41,9 @@ public class LoginController {
 		
 		System.out.println(modelMap.get("someInfo"));
 		System.out.println("THis was a get request");
+		emptyUser = new Users();
+		emptyUser.setPass("pass");
+		emptyUser.setUsername("username");
 		modelMap.addAttribute("user", emptyUser);
 		return "login";
 	}

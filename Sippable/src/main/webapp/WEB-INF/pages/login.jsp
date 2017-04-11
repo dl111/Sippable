@@ -17,7 +17,7 @@
 	</c:if>
 
 	<h1>Login</h1>
-	<form:form action="login" method="POST" commandName="user">
+	<form:form action="login" method="POST">
     Username: <form:input path="username" />
 		<form:errors path="username" cssClass="alert alert-danger"
 			element="div" />

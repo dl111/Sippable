@@ -4,11 +4,13 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.springframework.stereotype.Component;
 import org.hibernate.Query;
 
 import com.sippable.beans.Drink;
 import com.sippable.utils.*;
 
+@Component
 public class DrinkDaoImpl implements DrinkDao{
 
 	/**

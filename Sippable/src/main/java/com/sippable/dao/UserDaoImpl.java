@@ -1,10 +1,12 @@
 package com.sippable.dao;
 
 import org.hibernate.Session;
+import org.springframework.stereotype.Component;
 
 import com.sippable.beans.Users;
 import com.sippable.utils.HibernateUtil;
 
+@Component
 public class UserDaoImpl implements UserDao{
 
 
