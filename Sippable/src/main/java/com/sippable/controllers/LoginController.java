@@ -53,6 +53,15 @@ public class LoginController {
 	//	modelMap.addAttribute("users", user);
 System.out.println("Email -> " + email + "Password -> " + password);
 System.out.println(modelMap.get("user"));
+ boolean isauth = userService.isAuth(email, password);
+ if(isauth == true)
+ {
+	 
+	 return "/dash";
+ }
+//userService.
+
+
 /*		System.out.println("This was a post request");
 		if (bindingResult.hasErrors()){
 			
@@ -72,7 +81,7 @@ System.out.println(modelMap.get("user"));
 //			modelMap.addAttribute("errorMessage", "Username/password incorrect");
 //			return "login";
 //		}
-		return "login";
+		return "index";
 	}
 	
 

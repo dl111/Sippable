@@ -24,4 +24,17 @@ public class UserServiceImpl implements UserService{
 		return user;		
 	}
 
+	@Override
+	public boolean isAuth(String email, String pass) {
+		Users user = dao.getUserByEmail(email);
+		if(user == null)
+		return false;
+		else if(user.getPass().equals(pass))
+		{
+			return true;
+			
+		}
+	return false;
+	}
+
 }
