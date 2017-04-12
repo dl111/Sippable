@@ -37,4 +37,17 @@ public class UserServiceImpl implements UserService{
 	return false;
 	}
 
+	@Override
+	public void changePassword(Users user, String newPass) {
+		// TODO Auto-generated method stub
+		user.setPass(newPass);
+		dao.updateUser(user);
+	}
+
+	@Override
+	public Users getUserByEmail(String email) {
+		Users user = dao.getUserByEmail(email);
+		return user;
+	}
+
 }

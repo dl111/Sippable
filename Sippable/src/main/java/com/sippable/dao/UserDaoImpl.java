@@ -44,4 +44,13 @@ public class UserDaoImpl implements UserDao{
 		System.out.println("user saved");
 	}
 
+	@Override
+	public void updateUser(Users user) {
+		Session sess = HibernateUtil.getSession();
+		sess.beginTransaction();
+		sess.update(user);
+		sess.getTransaction().commit();
+	
+	}
+
 }
