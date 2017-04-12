@@ -102,47 +102,47 @@ body {
 </table>	--%>
 
 <script>
-var xhtml = new XMLHttpRequest()
-xhtml.onreadystatechange = function(){
-	if(xhtml.readyState == 4){
-		//document.getElementById("output").innerHTML = this.responseText;
-	}
+$( document ).ready(function() {
 	
-	
-}
-
-///xhtml.open("GET","resources/stuff.xml", true);
-//xhtml.send();
-
-//$("#output").load("resources/mytxt.txt");
-$("#AJAXButton").click(function (){
-	//get number	
-	//var inp = $("#num").val() /search/drink
-	var str = "http://localhost:8085/Sippable/search/drink"
-	$.get(str, function(data, status){
-	
-			console.log(data)
-			$("#list").html(data);
-		//	if($("#newTable").length == 0){
-				//var tableFormat = '<table border=1 id="newTable"></table>';
-				//$("#list").append(tableFormat)
-				//var input = $("#input").val(data.name); //change to data we get back
-				//$("#newTable").append("<tr><td>Name</td><td>" + data.name + "</td></tr><tr><td>ID</td><td>"+  data.id + "</td></tr>" + "</td></tr><tr><td>Weight</td><td>"+  data.weight + "</td></tr>" + "</td></tr><tr><td>Base Experience</td><td>"+  data.base_experience + "</td></tr>" +  "</td></tr><tr><td>Image</td></tr>")
-				//$("#list").html("one");
-		//	}
-			//else{				
-				//var tableFormat = '<table border=1 id="newTable"></table>';
-				//$("#newTable").empty()
-				//var input = $("#input").val(data.name); //change to data we get back
-				//$("#newTable").append("<tr><td>Name</td><td>" + data.name + "</td></tr><tr><td>ID</td><td>"+  data.id + "</td></tr>" + "</td></tr><tr><td>Weight</td><td>"+  data.weight + "</td></tr>" + "</td></tr><tr><td>Base Experience</td><td>"+  data.base_experience + "</td></tr>" +  "</td></tr><tr><td>Image</td><tr>")
-				//$("#list").html("two");
-			//}
+	//sets the program to update when its clicked to get the search by param
+	$("#AJAXButton").click(function (){
+		// /search/drink  
+		var ale = 0;
+		if(document.getElementById('checkboxes-0').checked){
+			var ale = '1';
+		}
 		
+		var ipa = 0;
+		if(document.getElementById('checkboxes-1').checked){
+			var ipa = '1';
+		}
 		
-		});	
+		var lager = 0;
+		if(document.getElementById('checkboxes-2').checked){
+			var lager = '1';
+		}
+		
+		var wheat = 0;
+		if(document.getElementById('checkboxes-3').checked){
+			var wheat = '1';
+		}
+		var str = "http://localhost:8085/Sippable/search/drink/" + ale + "/" + ipa + "/" + lager + "/" + wheat;
+		$.get(str, function(data, status){		
+				//console.log(data)
+				$("#list").html(data);			
+			});	
+		
+		});
 	
-	});
+	//get all the drinks
+	var str = "http://localhost:8085/Sippable/search/drink/0/0/0/0"
+		$.get(str, function(data, status){		
+				//console.log(data)
+				$("#list").html(data);			
+			});		
 	
+});
+
 	
 </script>
 </body>
