@@ -62,8 +62,7 @@
 }
 
 body {
-/* 	background-image:
-		url("https://images8.alphacoders.com/413/413078.jpg"); */
+ 	background-image:url("https://images8.alphacoders.com/413/413078.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	media-align:center;
