@@ -117,24 +117,26 @@ xhtml.onreadystatechange = function(){
 //$("#output").load("resources/mytxt.txt");
 $("#AJAXButton").click(function (){
 	//get number	
-	//var inp = $("#num").val()
-	var str = "http://pokeapi.co/api/v2/pokemon/" + 1 + "/"
+	//var inp = $("#num").val() /search/drink
+	var str = "http://localhost:8085/Sippable/search/drink"
 	$.get(str, function(data, status){
 	
-			console.log(data.name)
-			if($("#newTable").length == 0){
-				var tableFormat = '<table border=1 id="newTable"></table>';
-				$("#list").append(tableFormat)
+			console.log(data)
+			$("#list").html(data);
+		//	if($("#newTable").length == 0){
+				//var tableFormat = '<table border=1 id="newTable"></table>';
+				//$("#list").append(tableFormat)
 				//var input = $("#input").val(data.name); //change to data we get back
-				$("#newTable").append("<tr><td>Name</td><td>" + data.name + "</td></tr><tr><td>ID</td><td>"+  data.id + "</td></tr>" + "</td></tr><tr><td>Weight</td><td>"+  data.weight + "</td></tr>" + "</td></tr><tr><td>Base Experience</td><td>"+  data.base_experience + "</td></tr>" +  "</td></tr><tr><td>Image</td></tr>")
-			}
-			else{				
-				var tableFormat = '<table border=1 id="newTable"></table>';
-				$("#newTable").empty()
+				//$("#newTable").append("<tr><td>Name</td><td>" + data.name + "</td></tr><tr><td>ID</td><td>"+  data.id + "</td></tr>" + "</td></tr><tr><td>Weight</td><td>"+  data.weight + "</td></tr>" + "</td></tr><tr><td>Base Experience</td><td>"+  data.base_experience + "</td></tr>" +  "</td></tr><tr><td>Image</td></tr>")
+				//$("#list").html("one");
+		//	}
+			//else{				
+				//var tableFormat = '<table border=1 id="newTable"></table>';
+				//$("#newTable").empty()
 				//var input = $("#input").val(data.name); //change to data we get back
-				$("#newTable").append("<tr><td>Name</td><td>" + data.name + "</td></tr><tr><td>ID</td><td>"+  data.id + "</td></tr>" + "</td></tr><tr><td>Weight</td><td>"+  data.weight + "</td></tr>" + "</td></tr><tr><td>Base Experience</td><td>"+  data.base_experience + "</td></tr>" +  "</td></tr><tr><td>Image</td><tr>")
-			
-			}
+				//$("#newTable").append("<tr><td>Name</td><td>" + data.name + "</td></tr><tr><td>ID</td><td>"+  data.id + "</td></tr>" + "</td></tr><tr><td>Weight</td><td>"+  data.weight + "</td></tr>" + "</td></tr><tr><td>Base Experience</td><td>"+  data.base_experience + "</td></tr>" +  "</td></tr><tr><td>Image</td><tr>")
+				//$("#list").html("two");
+			//}
 		
 		
 		});	
