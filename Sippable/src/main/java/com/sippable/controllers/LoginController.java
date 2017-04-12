@@ -57,7 +57,7 @@ System.out.println(modelMap.get("user"));
  if(isauth == true)
  {
 	 
-	 return "/dash";
+	 return "/drinkList";
  }
 //userService.
 
