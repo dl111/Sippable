@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.springframework.stereotype.Component;
 
 import com.sippable.beans.Rating;
 import com.sippable.utils.HibernateUtil;
 
+@Component
 public class RatingDaoImpl implements RatingDao{
 
 	@Override

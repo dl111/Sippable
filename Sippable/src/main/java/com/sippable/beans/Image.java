@@ -1,5 +1,7 @@
 package com.sippable.beans;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,8 +18,13 @@ import org.springframework.stereotype.Component;
 //@Autowired
 @Entity
 @Table(name="IMAGE")
-public class Image {
+public class Image implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3545758671948416093L;
+
 	@Column(name = "IMAGE_URL" )
 	private String url;
 	

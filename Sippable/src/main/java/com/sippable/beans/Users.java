@@ -1,18 +1,28 @@
 
 package com.sippable.beans;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
-import javax.persistence.Table; 
+import javax.persistence.Table;
+
+import org.springframework.stereotype.Component; 
 
 @Entity
+@Component
 @Table(name="USERS")
-public class Users {
+public class Users implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7940277665858544128L;
+
 	@Id
 	@Column(name="USER_ID")
 	@SequenceGenerator(name="USER_SEQ", sequenceName = "USER_SEQ")

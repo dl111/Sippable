@@ -5,11 +5,12 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.springframework.stereotype.Component;
 
 import com.sippable.beans.Article;
 import com.sippable.utils.HibernateUtil;
 
-
+@Component
 public class ArticleDaoImpl implements ArticleDao {
 
 	@Override

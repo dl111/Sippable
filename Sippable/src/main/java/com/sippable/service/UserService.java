@@ -7,4 +7,7 @@ import com.sippable.beans.Users;
 public interface UserService {
 	public void createNewUser(Users user);
 	public Users getUserByid(int id);
+	public boolean isAuth(String email, String pass);
+	public void changePassword(Users user, String newPass);
+	public Users getUserByEmail(String email);
 }
