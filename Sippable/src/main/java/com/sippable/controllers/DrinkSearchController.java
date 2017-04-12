@@ -46,6 +46,27 @@ public class DrinkSearchController {
 		//DATA GOES HERE/////////////////////////////
 		List<Drink> list = dr.getAllDrinks();
 		
+		for(Drink d : list){
+			str.append("<tr bgcolor=#c2c2d6>");
+			
+			str.append("<td align=center>");
+			str.append(d.getDrinkName());
+			str.append("</td>");
+			
+			str.append("<td align=center>");
+			str.append(d.getBrewer());
+			str.append("</td>");
+			
+			str.append("<td align=center>");
+			str.append(new Double(d.getRatingAvg()).toString());
+			str.append("</td>");
+			
+			str.append("<td align=center>");
+			str.append("<form action=beer/"+d.getDrinkId()+"><input type=submit name=view value=view id=" + d.getDrinkId()+"></form>");
+			str.append("</td>");
+			
+			str.append("</tr>");
+		}
 		
 		/////////////////////////////////////////////
 		
