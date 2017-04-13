@@ -47,6 +47,7 @@ body {
 	<th style="text-align:center">BEER NAME</th>
 	<th style="text-align:center">BREWER</th>
 	<th style="text-align:center">BEER RATING</th>
+	<th style="text-align:center">BEER TYPE</th>
 	<th style="text-align:center">VIEW</th>
 	</tr>
   </thead>
@@ -58,6 +59,20 @@ body {
       <td align="center"><c:out value="${row.DRINK_NAME }"></c:out></td>
       <td align="center"><c:out value="${row.BREWER}"></c:out></td>
       <td align="center"><c:out value="${row.RATING_AVG}"></c:out></td>
+      <td align="center"><c:if test="${row.DRINKTYPE == 1}" >
+      					<c:out value="Ale"></c:out>
+      					</c:if>
+      					<c:if test="${row.DRINKTYPE == 2}">
+      					<c:out value="IPA"></c:out>
+      					</c:if>
+      					<c:if test="${row.DRINKTYPE == 3}">
+      					<c:out value="Lager"></c:out>
+      					</c:if>
+      					<c:if test="${row.DRINKTYPE == 4}">
+      					<c:out value="Wheat"></c:out>
+      					</c:if>
+      
+      </td>
       <td align="center"><form action="beer/${row.DRINK_ID}"><input type="submit" name="" value="view" id="${row.DRINK_ID}"></form></td>
     </tr>
 	</c:forEach>

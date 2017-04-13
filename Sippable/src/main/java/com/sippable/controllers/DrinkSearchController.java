@@ -26,14 +26,21 @@ public class DrinkSearchController {
 	@Autowired
 	DrinkService dr;
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/search/drink/{ale}/{ipa}/{lager}/{wheat}")
+	@RequestMapping(method = RequestMethod.GET, value = "/search/drink/{ale}/{ipa}/{lager}/{wheat}/{searchField}")
 	@ResponseBody
-	public String getLoginPage(@PathVariable(value="ale") String ale, @PathVariable(value="ipa") String ipa, @PathVariable(value="lager") String lager, @PathVariable(value="wheat") String wheat){
+	public String getLoginPage(@PathVariable(value="ale") String ale, @PathVariable(value="ipa") String ipa, @PathVariable(value="lager") String lager, @PathVariable(value="wheat") String wheat, @PathVariable(value="searchField") String searchField){
 		StringBuilder str = new StringBuilder();
-		System.out.println(ale);
-		System.out.println(ipa);
-		System.out.println(lager);
-		System.out.println(wheat);
+//		System.out.println(ale);
+//		System.out.println(ipa);
+//		System.out.println(lager);
+//		System.out.println(wheat);
+		if(searchField.equals("a")){
+			System.out.println(searchField);
+		}
+		else{
+			System.out.println(searchField.substring(1));
+		}
+		
 		//TABLE HEADER AND STYLE
 		str.append("<table class=table align=center border=1><thead class=thead-default><tr bgcolor=#b3b3cc align=center>");
 		
