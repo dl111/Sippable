@@ -56,9 +56,7 @@ body {
     </label>
   </div>
 </div>
-<br>
 
-<button id="AJAXButton"></button>
 <br>
 <div align="center" id="list">
 
@@ -104,8 +102,7 @@ body {
 <script>
 $( document ).ready(function() {
 	
-	//sets the program to update when its clicked to get the search by param
-	$("#AJAXButton").click(function (){
+	function getTable(){
 		// /search/drink  
 		var ale = 0;
 		if(document.getElementById('checkboxes-0').checked){
@@ -132,14 +129,21 @@ $( document ).ready(function() {
 				$("#list").html(data);			
 			});	
 		
-		});
+	}
+	
 	
 	//get all the drinks
 	var str = "http://localhost:8085/Sippable/search/drink/0/0/0/0"
 		$.get(str, function(data, status){		
 				//console.log(data)
 				$("#list").html(data);			
-			});		
+			});	
+	
+	$('#checkboxes-0').change(getTable);
+	$('#checkboxes-1').change(getTable);
+	$('#checkboxes-2').change(getTable);
+	$('#checkboxes-3').change(getTable);
+	  
 	
 });
 
