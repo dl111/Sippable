@@ -49,14 +49,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="header">
 		<div class="container">
 			<div class="logo">
-				<a href="index.html"><img src="static/img/logo.png"
+				<a href="welcome"><img src="static/img/logo.png"
 					class="img-responsive" alt=""></a>
 			</div>
 
 			<div class="head-nav">
 				<span class="menu"> </span>
 				<ul class="cl-effect-1">
-					<li class="active"><a href="index.html">Home</a></li>
+					<li class="active"><a href="welcome">Home</a></li>
 					<li><a href="allbeers">Find a Beer</a></li>
 					<li><a href="services.html">Our top 10</a></li>
 					<li><a href="blog.html">Latest articles</a></li>
