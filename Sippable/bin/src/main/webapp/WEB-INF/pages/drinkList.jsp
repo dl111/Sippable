@@ -124,14 +124,14 @@ $( document ).ready(function() {
 		if(document.getElementById('checkboxes-3').checked){
 			var wheat = '1';
 		}
-		var str = "http://localhost:8085/Sippables/search/drink/" + ale + "/" + ipa + "/" + lager + "/" + wheat;
+		var str = "search/drink/" + ale + "/" + ipa + "/" + lager + "/" + wheat;
 		$.get(str, function(data, status){		
 				//console.log(data)
 				$("#list").html(data);			
 			});	
 		
 	}
-	var str = "http://localhost:8085/Sippables/search/drink/0/0/0/0"
+	//var str = "34.200.225.32:8080/Sippable/search/drink/0/0/0/0"
 	
 	//get all the drinks
 	var str = "search/drink/0/0/0/0"
