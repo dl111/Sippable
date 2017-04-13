@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix="c" 
@@ -124,7 +124,7 @@ $( document ).ready(function() {
 		if(document.getElementById('checkboxes-3').checked){
 			var wheat = '1';
 		}
-		var str = "http://localhost:8085/Sippable/search/drink/" + ale + "/" + ipa + "/" + lager + "/" + wheat;
+		var str = "http://34.200.225.32:8085/Sippable/search/drink/" + ale + "/" + ipa + "/" + lager + "/" + wheat;
 		$.get(str, function(data, status){		
 				//console.log(data)
 				$("#list").html(data);			
@@ -134,7 +134,7 @@ $( document ).ready(function() {
 	
 	
 	//get all the drinks
-	var str = "http://localhost:8085/Sippable/search/drink/0/0/0/0"
+	var str = "http://34.200.225.32:8085/Sippable/search/drink/0/0/0/0"
 		$.get(str, function(data, status){		
 				//console.log(data)
 				$("#list").html(data);			
