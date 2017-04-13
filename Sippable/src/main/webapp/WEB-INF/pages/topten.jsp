@@ -14,10 +14,14 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <style>
-body {
-   background-color: #3377ff;
-   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwq6cvb3-BfaWBxoWsF1PUzIACHfjl2GlBrkvOAS9qY1I2BFf4QR4nPak");
+
+body {   
+   background-image: url("https://images8.alphacoders.com/413/413078.jpg");
    background-size: cover;
+}
+
+#header{
+		color: white;
 }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -40,7 +44,7 @@ body {
 	</sql:query>
 	
 	
-	<h2 align="center">Top Ten Drinks</h2>
+	<h2 align="center" id="header">Top Ten Drinks</h2>
   <table class="table" align="center" border="1">
   <thead class="thead-default">
     <tr bgcolor="#b3b3cc" align="center">

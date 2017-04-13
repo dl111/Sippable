@@ -22,9 +22,23 @@
 
 <style>
 body {
-   background-color: #3377ff;
-   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwq6cvb3-BfaWBxoWsF1PUzIACHfjl2GlBrkvOAS9qY1I2BFf4QR4nPak");
+   color : white;
+   background-image: url("https://images8.alphacoders.com/413/413078.jpg");
    background-size: cover;
+}
+
+#header{
+		color : white;
+}
+
+#searchField{	
+	width:200px;
+	margin:auto;
+}
+
+.table{
+	color : black;
+	
 }
 </style>
 
@@ -32,15 +46,16 @@ body {
 <title>Drink List</title>
 </head>
 <body>
-	<h2 align="center">Search for Drinks</h2>	
+	<h2 align="center" id="header">Search for Drinks</h2>	
 	
 	
 	<!-- Multiple Checkboxes (inline) -->
-<div class="form-group" align="center">
+<div class="form-group" align="center" >
   <label class="col-md-4 control-label" for="checkboxes"></label>
   <div class="col-md-4">
     <label class="checkbox-inline" for="checkboxes-0">
       <input name="checkboxes" id="checkboxes-0" value="1" type="checkbox">
+      
       Ale
     </label>
     <label class="checkbox-inline" for="checkboxes-1">
@@ -58,7 +73,10 @@ body {
   </div>
 </div>
 <br>
+<div id="textDiv" align="center">
 <input type="text" id="searchField">
+</div>
+
 <br>
 <div align="center" id="list">
 
@@ -127,7 +145,7 @@ $( document ).ready(function() {
 		}
 		//ADD HERE!!!
 		var searchField = 'a' + $("#searchField").val();
-		var str = "http://localhost:8085/Sippable/search/drink/" + ale + "/" + ipa + "/" + lager + "/" + wheat + "/" + searchField;
+		var str = "search/drink/" + ale + "/" + ipa + "/" + lager + "/" + wheat + "/" + searchField;
 		$.get(str, function(data, status){		
 				//console.log(data)
 				$("#list").html(data);			
@@ -140,7 +158,7 @@ $( document ).ready(function() {
 	
 	//get all the drinks
 	//ADD HERE!!!http://localhost:8085/Sippable/search/drink/
-	var str = "http://localhost:8085/Sippable/search/drink/0/0/0/0/a";
+	var str = "search/drink/0/0/0/0/a";
 		$.get(str, function(data, status){		
 				//console.log(data)
 				$("#list").html(data);			
