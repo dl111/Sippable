@@ -60,8 +60,10 @@ System.out.println(modelMap.get("user"));
  boolean isauth = userService.isAuth(email, password);
  if(isauth == true)
  {
+
 	 Drink dr = drinkService.getDrink(100000);
 	 modelMap.addAttribute("drinkToDisplay", dr.getDrinkName());
+
 	 return "/drinkList";
  }
 //userService.

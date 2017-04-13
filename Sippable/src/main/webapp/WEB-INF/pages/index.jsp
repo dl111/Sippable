@@ -114,10 +114,10 @@
 			<div id="cd-reset-password"> <!-- reset password form -->
 				<p class="cd-form-message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p>
 
-				<form class="cd-form">
+				<form class="cd-form" action = "forgotpassword" method = "POST">
 					<p class="fieldset">
 						<label class="image-replace cd-email" for="reset-email">E-mail</label>
-						<input class="full-width has-padding has-border" id="reset-email" type="email" placeholder="E-mail">
+						<input class="full-width has-padding has-border" id="reset-email" type="email" placeholder="E-mail" name = "email">
 						<span class="cd-error-message">Error message here!</span>
 					</p>
 
