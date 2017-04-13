@@ -61,9 +61,12 @@ System.out.println(modelMap.get("user"));
  if(isauth == true)
  {
 
+
 	 
 
-	 return "/drinkList";
+	
+	 return "welcome";
+
  }
 //userService.
 
