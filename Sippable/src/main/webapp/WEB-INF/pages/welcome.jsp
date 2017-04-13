@@ -58,7 +58,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<ul class="cl-effect-1">
 					<li class="active"><a href="welcome">Home</a></li>
 					<li><a href="allbeers">Find a Beer</a></li>
-					<li><a href="services.html">Our top 10</a></li>
+					<li><a href="topten">Our top 10</a></li>
 					<li><a href="blog.html">Latest articles</a></li>
 					<li><a href="404.html">Your Profile</a></li>
 					<div class="clearfix"></div>
