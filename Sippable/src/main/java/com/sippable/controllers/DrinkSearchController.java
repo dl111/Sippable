@@ -5,6 +5,10 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.criterion.LogicalExpression;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -17,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sippable.beans.Drink;
 import com.sippable.service.DrinkService;
+import com.sippable.utils.HibernateUtil;
 
 
 
@@ -59,30 +64,35 @@ public class DrinkSearchController {
 		
 		
 		List<Drink> list;
-		String search = "FROM Drink ";
+//		Session sess = HibernateUtil.getSession();
+//		Criteria cr = sess.createCriteria(Drink.class);
+//		LogicalExpression lg; 
 		
-//		int numOrsNeeded = 0;
-//		
-//		if(ale.equals("1")){				
-//			numOrsNeeded++;
-//		}
-//		
-//		if(ipa.equals("1")){				
-//			numOrsNeeded++;
-//		}
-//		
-//		if(lager.equals("1")){				
-//			numOrsNeeded++;
-//		}
-//		
-//		if(wheat.equals("1")){				
-//			numOrsNeeded++;
-//		}
-//		if(!searchField.equals("a")){
-//			if(numOrsNeeded > 1){
-//				search += "( ";
-//			}
-//		}
+		
+		String search = "FROM Drink WHERE ";
+		
+		int numOrsNeeded = 0;
+		
+		if(ale.equals("1")){				
+			numOrsNeeded++;
+		}
+		
+		if(ipa.equals("1")){				
+			numOrsNeeded++;
+		}
+		
+		if(lager.equals("1")){				
+			numOrsNeeded++;
+		}
+		
+		if(wheat.equals("1")){				
+			numOrsNeeded++;
+		}
+		if(!searchField.equals("a")){
+			if(numOrsNeeded > 1){
+				search += "( ";
+			}
+		}
 		//default search
 		if(ale.equals("0") && lager.equals("0") && ipa.equals("0") & wheat.equals("0")){
 			list = dr.getAllDrinksByRating();
@@ -94,7 +104,9 @@ public class DrinkSearchController {
 			//build the search
 			
 			if(ale.equals("1")){
-				search += "WHERE drinkType = 1";				
+				search += "drinkType = 1";
+				//cr.add(Restrictions.eq("drinkType", 1));
+				
 			}
 			
 			if(ipa.equals("1")){				
@@ -102,7 +114,8 @@ public class DrinkSearchController {
 					search += " OR drinkType = 2";
 				}
 				else{
-					search += "WHERE drinkType = 2";
+					search += "drinkType = 2";
+					//cr.add(Restrictions.eq("drinkType", 2));
 				}				
 			}
 			
@@ -111,7 +124,8 @@ public class DrinkSearchController {
 					search += " OR drinkType = 3";
 				}
 				else{
-					search += "WHERE drinkType = 3";
+					search += "drinkType = 3";
+					//cr.add(Restrictions.eq("drinkType", 3));
 				}				
 			}
 			
@@ -120,15 +134,16 @@ public class DrinkSearchController {
 					search += " OR drinkType = 4";
 				}
 				else{
-					search += "WHERE drinkType = 4";
+					search += "drinkType = 4";
+					//cr.add(Restrictions.eq("drinkType", 4));
 				}				
 			}
 			
-//			if(!searchField.equals("a")){
-//				if(numOrsNeeded > 1){
-//					search += "( ";
-//				}
-//			}
+			if(!searchField.equals("a")){
+				if(numOrsNeeded > 1){
+					search += ") ";
+				}
+			}
 			
 			if(searchField.equals("a")){
 				list = dr.getSearch(search, null);
