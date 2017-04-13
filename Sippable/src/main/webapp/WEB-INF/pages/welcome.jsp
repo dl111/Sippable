@@ -17,8 +17,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords"
-	content="Voguish Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
-	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+	content="Sippable" />
 <script type="application/x-javascript">
 	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
@@ -58,7 +57,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<span class="menu"> </span>
 				<ul class="cl-effect-1">
 					<li class="active"><a href="index.html">Home</a></li>
-					<li><a href="about.html">Find a Beer</a></li>
+					<li><a href="allbeers">Find a Beer</a></li>
 					<li><a href="services.html">Our top 10</a></li>
 					<li><a href="blog.html">Latest articles</a></li>
 					<li><a href="404.html">Your Profile</a></li>
@@ -123,7 +122,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="nam-matis">
 				<div class="nam-matis-top">
 					<div class="col-md-6 nam-matis-1">
-						<a href="single.html"><img src="static/img/4.jpg"
+						<a href="single.html"><img src="static/img/1.jpg"
 							class="img-responsive" alt=""></a>
 						<h3>
 							<a href="single.html">Blue Moon</a>
@@ -134,7 +133,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 											Belgian tradition for an uncommonly smooth taste.</p>
 					</div>
 					<div class="col-md-6 nam-matis-1">
-						<a href="single.html"><img src="static/img/1.jpg"
+						<a href="single.html"><img src="static/img/4.jpg"
 							class="img-responsive" alt=""></a>
 						<h3>
 							<a href="single.html">Books N' Beer</a>
