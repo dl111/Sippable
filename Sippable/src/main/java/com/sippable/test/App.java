@@ -1,20 +1,14 @@
 package com.sippable.test;
 
-//import java.util.List;
-//
-//import javax.persistence.NamedQueries;
-//import javax.persistence.NamedQuery;
-//
-//import org.hibernate.Criteria;
-//import org.hibernate.Query;
-//import org.hibernate.SQLQuery;
+import java.util.List;
+
 import org.hibernate.Session;
-//import org.hibernate.criterion.Restrictions;
 
-
-
-
-import com.sippable.beans.*;
+import com.sippable.beans.Description;
+import com.sippable.beans.Drink;
+import com.sippable.beans.Image;
+import com.sippable.beans.Rating;
+import com.sippable.service.RatingServiceImpl;
 import com.sippable.utils.HibernateUtil;
 /**
  * Hello world!
@@ -24,18 +18,30 @@ public class App
 {
     public static void main( String[] args )
     {
-        Session sess = HibernateUtil.getSession();
-        Drink dr = (Drink)sess.get(Drink.class, 100000);
-        System.out.println(dr.toString());
+    
+    		Image image = new Image();
+    		Description description = new Description();
+    		
+    		image.setSource("asdasd");
+    		image.setUrl("ssfsdf");
+    		
+    		description.setDescription("asdasdasdasdfuck you");
+    		description.setSource("asdasdasdadasd");
+    		
+    		Drink drink = new Drink();
+    		drink.setImage(image);
+    		drink.setDescription(description);
+    		
+    		drink.setBevType(1);
+    		drink.setDrinkType(1);
+    		
+    		Session session = HibernateUtil.getSession();
+    		session.beginTransaction();
+    		session.save(drink);
+    		session.getTransaction().commit();
         
-        Users user = (Users)sess.get(Users.class, 1000000);
-        
-        System.out.println(user);
         
         
-        
-        
-        sess.close();
 //        HoneyPot hp = (HoneyPot)sess.get(HoneyPot.class, 50);
 //       Cave c = (Cave)sess.get(Cave.class, 1100);
         //Bear b = (Bear)sess.get(Bear.class, 1550);

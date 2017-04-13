@@ -1,4 +1,7 @@
+
 package com.sippable.beans;
+
+import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,10 +11,18 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component; 
+
 @Entity
+@Component
 @Table(name="USERS")
-public class Users {
+public class Users implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7940277665858544128L;
+
 	@Id
 	@Column(name="USER_ID")
 	@SequenceGenerator(name="USER_SEQ", sequenceName = "USER_SEQ")
@@ -46,6 +57,17 @@ public class Users {
 	
 	public Users(int userid, String username, String firstName, String lastName, String email, String pass, int isActive, int typeid){
 		this.userid = userid;
+		this.username = username;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.pass = pass;
+		this.isActive = isActive;
+		this.typeid = typeid;
+	}
+	
+	public Users(String username, String firstName, String lastName, String email, String pass, int isActive, int typeid){
+
 		this.username = username;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -119,6 +141,13 @@ public class Users {
 		this.typeid = typeid;
 	}
 
+	@Override
+	public String toString() {
+		return "Users [userid=" + userid + ", username=" + username + ", firstName=" + firstName + ", lastName="
+				+ lastName + ", email=" + email + ", pass=" + pass + ", isActive=" + isActive + ", typeid=" + typeid
+				+ "]";
+	}
+
 /*	public String getUserType() {
 		return userType;
 	}
@@ -127,10 +156,10 @@ public class Users {
 		this.userType = userType;
 	};
 	*/
-	@Override
-	public String toString(){
-		return username + " " + firstName + " " + lastName;
-	}
+
 	
 	
 }
+
+	
+

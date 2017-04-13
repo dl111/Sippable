@@ -1,12 +1,19 @@
+
 package com.sippable.beans;
 
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
 //import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 //import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 //import javax.persistence.JoinColumn;
 //import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
@@ -14,8 +21,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="DRINK")
-public class Drink {
+public class Drink implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8532482858404887807L;
+
 	@Id
 	@Column(name="DRINK_ID")
 	@SequenceGenerator(name="DRINKID_SEQ", sequenceName="DRINKID_SEQ")
@@ -43,6 +55,15 @@ public class Drink {
 	@Column(name="IBU")
 	private double ibu;
 	
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "DESCRIPTION")
+	private Description description;
+	
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "IMAGE")
+	private Image image;
+	
+	
 //	@OneToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 //	@JoinColumn(name="DRINKTYPE")
 //	private String drinkType;
@@ -58,10 +79,31 @@ public class Drink {
 	
 	
 	
-	public Drink(){}
+	public Description getDescription() {
+		return description;
+	}
+
+	public void setDescription(Description description) {
+		this.description = description;
+	}
+
+	public Image getImage() {
+		return image;
+	}
+
+	public void setImage(Image image) {
+		this.image = image;
+	}
+
+
 	
+	public Drink(){
+		
+	}
+
+
 	public Drink(int drinkId, String drinkName, String aroma, String color, String brewer, double ratingAvg,
-			double alcholContent, double ibu, int drinkType, int bevType) {
+			double alcholContent, double ibu, Description description, Image image, int bevType, int drinkType) {
 		super();
 		this.drinkId = drinkId;
 		this.drinkName = drinkName;
@@ -71,11 +113,11 @@ public class Drink {
 		this.ratingAvg = ratingAvg;
 		this.alcholContent = alcholContent;
 		this.ibu = ibu;
-		this.drinkType = drinkType;
+		this.description = description;
+		this.image = image;
 		this.bevType = bevType;
+		this.drinkType = drinkType;
 	}
-
-
 
 	public int getDrinkId() {
 		return drinkId;
@@ -211,3 +253,5 @@ public class Drink {
 	
 	
 }
+
+
