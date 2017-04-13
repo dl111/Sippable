@@ -5,9 +5,11 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
 <!-- Latest compiled and minified CSS -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
+
 
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -64,7 +66,9 @@
 }
 
 body {
+
 	background-image:url("https://images8.alphacoders.com/413/413078.jpg"); 
+
 	background-repeat: no-repeat;
 	background-size: cover;
 	media-align:center;
@@ -200,6 +204,7 @@ $( document ).ready(function() {
 
 </script>
 </head>
+
 <body>
 
 
@@ -257,6 +262,7 @@ $( document ).ready(function() {
 				<p class="list-group-item-text"><c:out value = "${drink.description}"/></p>
 			</a>
 		</div>
+
 			<div class="list-group-item active">
 
     <div class="row lead">
@@ -270,6 +276,7 @@ $( document ).ready(function() {
 	
 	<div class="accordianthing"></div>
 </div>
+
 
 
 </body>
