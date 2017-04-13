@@ -124,17 +124,21 @@ $( document ).ready(function() {
 		if(document.getElementById('checkboxes-3').checked){
 			var wheat = '1';
 		}
-		var str = "search/drink/" + ale + "/" + ipa + "/" + lager + "/" + wheat;
+		//ADD HERE!!!
+		var str = "http://localhost:8085/Sippable/search/drink/" + ale + "/" + ipa + "/" + lager + "/" + wheat;
 		$.get(str, function(data, status){		
 				//console.log(data)
 				$("#list").html(data);			
 			});	
 		
 	}
-	//var str = "34.200.225.32:8080/Sippable/search/drink/0/0/0/0"
+	//ADD THIS TO THE FRONT OF THE TWO VAR STRINGS TO MAKE IT WORK ON YOUR MACHINE!!!!
+	//var str = "http://localhost:PORTNUM/Sippable/"
+	//DELETE IT TO MAKE IT WORK WHEN YOU PUSH TO STAGING
 	
 	//get all the drinks
-	var str = "search/drink/0/0/0/0"
+	//ADD HERE!!!http://localhost:8085/Sippable/search/drink/
+	var str = "http://localhost:8085/Sippable/search/drink/0/0/0/0";
 		$.get(str, function(data, status){		
 				//console.log(data)
 				$("#list").html(data);			
