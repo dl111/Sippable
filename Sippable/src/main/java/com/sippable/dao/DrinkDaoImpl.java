@@ -53,5 +53,27 @@ public class DrinkDaoImpl implements DrinkDao{
         sess.close();
         return list;
 	}
+	
+	@Override
+	public List<Drink> getAllDrinksByRating() {
+		Session sess = HibernateUtil.getSession();
+       // Drink dr = (Drink)sess.get(Drink.class, id);
+		Query q = sess.createQuery("FROM Drink ORDER BY RATING_AVG DESC");
+		List<Drink> list = q.list();
+        sess.close();
+        return list;
+	}
+	
+	
+	@Override
+	public List<Drink> getSearch(String str) {
+		System.out.print(str);
+		Session sess = HibernateUtil.getSession();
+       // Drink dr = (Drink)sess.get(Drink.class, id);
+		Query q = sess.createQuery(str);
+		List<Drink> list = q.list();
+        sess.close();
+        return list;
+	}
 
 }
