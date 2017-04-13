@@ -32,6 +32,7 @@ body {
 }
 
 #searchField{	
+	color: black;
 	width:200px;
 	margin:auto;
 }
