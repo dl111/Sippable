@@ -125,7 +125,7 @@ $( document ).ready(function() {
 			var wheat = '1';
 		}
 		//ADD HERE!!!
-		var str = "http://localhost:8085/Sippable/search/drink/" + ale + "/" + ipa + "/" + lager + "/" + wheat;
+		var str = "search/drink/" + ale + "/" + ipa + "/" + lager + "/" + wheat;
 		$.get(str, function(data, status){		
 				//console.log(data)
 				$("#list").html(data);			
@@ -138,7 +138,7 @@ $( document ).ready(function() {
 	
 	//get all the drinks
 	//ADD HERE!!!http://localhost:8085/Sippable/search/drink/
-	var str = "http://localhost:8085/Sippable/search/drink/0/0/0/0";
+	var str = "search/drink/0/0/0/0";
 		$.get(str, function(data, status){		
 				//console.log(data)
 				$("#list").html(data);			
