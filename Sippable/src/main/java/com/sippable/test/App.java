@@ -19,26 +19,26 @@ public class App
     public static void main( String[] args )
     {
     
-    		Image image = new Image();
-    		Description description = new Description();
-    		
-    		image.setSource("asdasd");
-    		image.setUrl("ssfsdf");
-    		
-    		description.setDescription("asdasdasdasdfuck you");
-    		description.setSource("asdasdasdadasd");
-    		
-    		Drink drink = new Drink();
-    		drink.setImage(image);
-    		drink.setDescription(description);
-    		
-    		drink.setBevType(1);
-    		drink.setDrinkType(1);
-    		
-    		Session session = HibernateUtil.getSession();
-    		session.beginTransaction();
-    		session.save(drink);
-    		session.getTransaction().commit();
+//    		Image image = new Image();
+//    		Description description = new Description();
+//    		
+//    		image.setSource("asdasd");
+//    		image.setUrl("ssfsdf");
+//    		
+//    		description.setDescription("asdasdasdasdfuck you");
+//    		description.setSource("asdasdasdadasd");
+//    		
+//    		Drink drink = new Drink();
+//    		drink.setImage(image);
+//    		drink.setDescription(description);
+//    		
+//    		drink.setBevType(1);
+//    		drink.setDrinkType(1);
+//    		
+//    		Session session = HibernateUtil.getSession();
+//    		session.beginTransaction();
+//    		session.save(drink);
+//    		session.getTransaction().commit();
         
         
         
