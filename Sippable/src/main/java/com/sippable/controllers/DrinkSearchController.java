@@ -60,29 +60,36 @@ public class DrinkSearchController {
 		
 		List<Drink> list;
 		String search = "FROM Drink ";
+		
+//		int numOrsNeeded = 0;
+//		
+//		if(ale.equals("1")){				
+//			numOrsNeeded++;
+//		}
+//		
+//		if(ipa.equals("1")){				
+//			numOrsNeeded++;
+//		}
+//		
+//		if(lager.equals("1")){				
+//			numOrsNeeded++;
+//		}
+//		
+//		if(wheat.equals("1")){				
+//			numOrsNeeded++;
+//		}
+//		if(!searchField.equals("a")){
+//			if(numOrsNeeded > 1){
+//				search += "( ";
+//			}
+//		}
 		//default search
 		if(ale.equals("0") && lager.equals("0") && ipa.equals("0") & wheat.equals("0")){
 			list = dr.getAllDrinksByRating();
 		}
 		else{ //search params are set
 			//calculate the number of OR statments we need 
-//			int numOrsNeeded = -1;
 //			
-//			if(ale.equals("1")){				
-//				numOrsNeeded++;
-//			}
-//			
-//			if(ipa.equals("1")){				
-//				numOrsNeeded++;
-//			}
-//			
-//			if(lager.equals("1")){				
-//				numOrsNeeded++;
-//			}
-//			
-//			if(wheat.equals("1")){				
-//				numOrsNeeded++;
-//			}
 			
 			//build the search
 			
@@ -117,7 +124,19 @@ public class DrinkSearchController {
 				}				
 			}
 			
-			list = dr.getSearch(search);
+//			if(!searchField.equals("a")){
+//				if(numOrsNeeded > 1){
+//					search += "( ";
+//				}
+//			}
+			
+			if(searchField.equals("a")){
+				list = dr.getSearch(search, null);
+			}
+			else{
+				list = dr.getSearch(search, searchField.substring(1));
+			}
+			
 			
 		}
 		

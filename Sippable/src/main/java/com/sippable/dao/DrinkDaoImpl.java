@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Component;
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 
 import com.sippable.beans.Drink;
 import com.sippable.utils.*;
@@ -66,14 +67,30 @@ public class DrinkDaoImpl implements DrinkDao{
 	
 	
 	@Override
-	public List<Drink> getSearch(String str) {
-		System.out.print(str);
+	public List<Drink> getSearch(String str, String search) {
+		
+		if(search == null){
+			Session sess = HibernateUtil.getSession();
+			System.out.println("no search");
+		       // Drink dr = (Drink)sess.get(Drink.class, id);
+				Query q = sess.createQuery(str);
+				List<Drink> list = q.list();
+		        sess.close();
+		        return list;
+		}
 		Session sess = HibernateUtil.getSession();
-       // Drink dr = (Drink)sess.get(Drink.class, id);
-		Query q = sess.createQuery(str);
-		List<Drink> list = q.list();
-        sess.close();
-        return list;
+			str += " AND drinkName like :userSearch";
+			System.out.println(str);
+	       // Drink dr = (Drink)sess.get(Drink.class, id);
+			//SQLQuery s = sess.createSQLQuery(str);
+			Query q = sess.createQuery(str);
+			q.setString("userSearch", search +"%");
+			System.out.println(q.getQueryString());
+			List<Drink> list = q.list();
+	        sess.close();
+	        return list;
+		//System.out.print(str);
+		
 	}
 
 }
