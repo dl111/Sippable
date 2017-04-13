@@ -14,10 +14,14 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <style>
-body {
-   background-color: #3377ff;
-   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwq6cvb3-BfaWBxoWsF1PUzIACHfjl2GlBrkvOAS9qY1I2BFf4QR4nPak");
+
+body {   
+   background-image: url("https://images8.alphacoders.com/413/413078.jpg");
    background-size: cover;
+}
+
+#header{
+		color: white;
 }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -40,13 +44,14 @@ body {
 	</sql:query>
 	
 	
-	<h2 align="center">Top Ten Drinks</h2>
+	<h2 align="center" id="header">Top Ten Drinks</h2>
   <table class="table" align="center" border="1">
   <thead class="thead-default">
     <tr bgcolor="#b3b3cc" align="center">
 	<th style="text-align:center">BEER NAME</th>
 	<th style="text-align:center">BREWER</th>
 	<th style="text-align:center">BEER RATING</th>
+	<th style="text-align:center">BEER TYPE</th>
 	<th style="text-align:center">VIEW</th>
 	</tr>
   </thead>
@@ -58,6 +63,20 @@ body {
       <td align="center"><c:out value="${row.DRINK_NAME }"></c:out></td>
       <td align="center"><c:out value="${row.BREWER}"></c:out></td>
       <td align="center"><c:out value="${row.RATING_AVG}"></c:out></td>
+      <td align="center"><c:if test="${row.DRINKTYPE == 1}" >
+      					<c:out value="Ale"></c:out>
+      					</c:if>
+      					<c:if test="${row.DRINKTYPE == 2}">
+      					<c:out value="IPA"></c:out>
+      					</c:if>
+      					<c:if test="${row.DRINKTYPE == 3}">
+      					<c:out value="Lager"></c:out>
+      					</c:if>
+      					<c:if test="${row.DRINKTYPE == 4}">
+      					<c:out value="Wheat"></c:out>
+      					</c:if>
+      
+      </td>
       <td align="center"><form action="beer/${row.DRINK_ID}"><input type="submit" name="" value="view" id="${row.DRINK_ID}"></form></td>
     </tr>
 	</c:forEach>
