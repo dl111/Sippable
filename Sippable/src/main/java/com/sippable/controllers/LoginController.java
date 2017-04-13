@@ -13,9 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sippable.*;
+import com.sippable.beans.Drink;
 import com.sippable.beans.Users;
 import com.sippable.beans.Users;
-
+import com.sippable.service.DrinkService;
 import com.sippable.service.UserServiceImpl;
 
 
@@ -28,6 +29,9 @@ public class LoginController {
 	
 	@Autowired
 	UserServiceImpl userService;
+	
+	@Autowired
+	DrinkService drinkService;
 	
 /*	@ModelAttribute("someInfo")
 	public String addInfoToRequestScope(){
@@ -57,7 +61,12 @@ System.out.println(modelMap.get("user"));
  if(isauth == true)
  {
 	 
-	 return "welcome";
+
+
+	 Drink dr = drinkService.getDrink(100000);
+	 modelMap.addAttribute("drinkToDisplay", dr.getDrinkName());
+
+	 return "/drinkList";
  }
 //userService.
 
