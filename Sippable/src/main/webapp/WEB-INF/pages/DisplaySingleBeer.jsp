@@ -213,7 +213,8 @@ $( document ).ready(function() {
 	<div class="image">
 
 		<img
-			src="https://tse4.mm.bing.net/th?id=OIP.94Ls5N7SrpT6ohv7YXe4ggEsDH&w=289&h=192&c=7&qlt=90&o=4&dpr=1.25&pid=1.7"
+			src=<c:out
+						value="${drink.image.url}" />
 			alt="..." class="img-thumbnail" align="center" border="5" width="">
 
 
