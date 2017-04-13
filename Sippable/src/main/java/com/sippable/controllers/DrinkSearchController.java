@@ -39,12 +39,12 @@ public class DrinkSearchController {
 //		System.out.println(ipa);
 //		System.out.println(lager);
 //		System.out.println(wheat);
-		if(searchField.equals("a")){
-			System.out.println(searchField);
-		}
-		else{
-			System.out.println(searchField.substring(1));
-		}
+//		if(searchField.equals("a")){
+//			System.out.println(searchField);
+//		}
+//		else{
+//			System.out.println(searchField.substring(1));
+//		}
 		
 		//TABLE HEADER AND STYLE
 		str.append("<table class=table align=center border=1><thead class=thead-default><tr bgcolor=#b3b3cc align=center>");
@@ -95,7 +95,13 @@ public class DrinkSearchController {
 		}
 		//default search
 		if(ale.equals("0") && lager.equals("0") && ipa.equals("0") & wheat.equals("0")){
-			list = dr.getAllDrinksByRating();
+			//list = dr.getAllDrinksByRating();
+			if(searchField.equals("a")){
+				list = dr.getSearch("FROM Drink", null, true);
+			}
+			else{
+				list = dr.getSearch("FROM Drink", searchField.substring(1), true);
+			}
 		}
 		else{ //search params are set
 			//calculate the number of OR statments we need 
@@ -146,10 +152,10 @@ public class DrinkSearchController {
 			}
 			
 			if(searchField.equals("a")){
-				list = dr.getSearch(search, null);
+				list = dr.getSearch(search, null, false);
 			}
 			else{
-				list = dr.getSearch(search, searchField.substring(1));
+				list = dr.getSearch(search, searchField.substring(1), false);
 			}
 			
 			

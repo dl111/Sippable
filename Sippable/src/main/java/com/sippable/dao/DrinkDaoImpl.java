@@ -67,11 +67,11 @@ public class DrinkDaoImpl implements DrinkDao{
 	
 	
 	@Override
-	public List<Drink> getSearch(String str, String search) {
+	public List<Drink> getSearch(String str, String search, boolean isFirst) {
 		
 		if(search == null){
 			Session sess = HibernateUtil.getSession();
-			System.out.println("no search");
+			//System.out.println("no search");
 		       // Drink dr = (Drink)sess.get(Drink.class, id);
 				Query q = sess.createQuery(str);
 				List<Drink> list = q.list();
@@ -79,8 +79,14 @@ public class DrinkDaoImpl implements DrinkDao{
 		        return list;
 		}
 		Session sess = HibernateUtil.getSession();
-			str += " AND drinkName like :userSearch";
-			System.out.println(str);
+			if(isFirst){
+				str += " WHERE drinkName like :userSearch";
+			}
+			else{
+				str += " AND drinkName like :userSearch";
+			}
+			
+			//System.out.println(str);
 	       // Drink dr = (Drink)sess.get(Drink.class, id);
 			//SQLQuery s = sess.createSQLQuery(str);
 			Query q = sess.createQuery(str);

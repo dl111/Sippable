@@ -145,7 +145,7 @@ $( document ).ready(function() {
 				//console.log(data)
 				$("#list").html(data);			
 			});	
-	
+	$("#searchField").blur(getTable);
 	$('#checkboxes-0').change(getTable);
 	$('#checkboxes-1').change(getTable);
 	$('#checkboxes-2').change(getTable);

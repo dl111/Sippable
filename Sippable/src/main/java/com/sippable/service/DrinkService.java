@@ -33,8 +33,8 @@ public class DrinkService {
 		
 	}
 	
-	public List<Drink> getSearch(String str, String search){
-		return dao.getSearch(str, search);
+	public List<Drink> getSearch(String str, String search, boolean isFirst){
+		return dao.getSearch(str, search, isFirst);
 	}
 	
 	
