@@ -70,6 +70,7 @@
 
 body {
 	background-image: url("https://images8.alphacoders.com/413/413078.jpg") !important;
+	background-size: cover !important;
 /* 	background-repeat: no-repeat !important;
 	background-size: cover !important;
 	media-align: center !important; */
@@ -347,7 +348,7 @@ $( document ).ready(function() {
 				<div class="row lead">
 					<p>Rate Beer</p>
 					<div id="stars-existing" class="starrr" data-rating='4'></div>
-					You gave a rating of <span id="count-existing">4</span> star(s)
+					You gave a rating of <span id="count-existing"><c:out value="${drink.ratingAvg}"/></span> star(s)
 				</div>
 			</div>
 
@@ -360,6 +361,6 @@ $( document ).ready(function() {
 
 		<div class="accordianthing"></div>
 	</div>
-
+	
 </body>
 </html>
