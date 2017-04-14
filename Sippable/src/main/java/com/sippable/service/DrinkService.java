@@ -60,5 +60,7 @@ public class DrinkService {
 		return image;
 	}
 	
-	
+	public void updateRating(){
+		
+	}
 }

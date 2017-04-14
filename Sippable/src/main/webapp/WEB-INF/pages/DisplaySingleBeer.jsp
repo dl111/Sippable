@@ -36,7 +36,7 @@
 
 .header {
 	padding: 15px;
-	color: #67655D;
+	color: #ffffff;
 }
 
 .image {
@@ -44,6 +44,8 @@
 	float: left;
 	padding: 15px;
 	margin-left: 8cm;
+	color: #ffffff;
+	
 }
 
 .main {
@@ -57,6 +59,7 @@
 	float: left;
 	padding: 15px;
 	margin-left: 8cm;
+	color: #ffffff;
 }
 
 .accordianthing {
@@ -222,14 +225,18 @@ $( document ).ready(function() {
 						value="${drink.image.url}" />
 			alt="..." class="img-thumbnail" align="center" border="5" width="">
 
-
+	<div>
+		<lable>Source:
+		<c:out value = "${drink.image.source}"/>
+		</lable>
+	</div>
 	</div>
 
 	<div class="main">
 		<ul class="list-group">
 			<li class="list-group-item"><span class="badge"> <c:out
 						value="${drink.ibu}" />
-			</span> ibu</li>
+			</span> IBU</li>
 		</ul>
 		<ul class="list-group">
 			<li class="list-group-item"><span class="badge"><c:out
@@ -237,18 +244,23 @@ $( document ).ready(function() {
 		</ul>
 		<ul class="list-group">
 			<li class="list-group-item"><span class="badge"><c:out value = "${drink.color}"/></span>
-				appearance</li>
+				Appearance</li>
 		</ul>
 		<ul class="list-group">
 			<li class="list-group-item"><span class="badge"><c:out value = "${drink.alcholContent}"/></span> alcohol
-				content</li>
+				Content</li>
 		</ul>
 		<ul class="list-group">
 			<li class="list-group-item"><span class="badge"><c:out value = "${drink.brewer}"/></span>
-				brewer</li>
+				Brewer</li>
 		</ul>
 		<ul class="list-group">
-			<li class="list-group-item"><span class="badge"><c:out value = "${drink.bevType}"/></span> Type of beer</li>
+			<li class="list-group-item"><span class="badge">
+			<c:if test="${drink.drinkType == 1}"><c:out value="Ale"/></c:if>
+			<c:if test="${drink.drinkType == 2}"><c:out value="IPA"/></c:if>
+			<c:if test="${drink.drinkType == 3}"><c:out value="Lager"/></c:if>
+			<c:if test="${drink.drinkType == 4}"><c:out value="Wheat"/></c:if>
+			</span> Type of beer</li>
 		</ul>
 			<ul class="list-group">
 			<li class="list-group-item"><span class="badge"><c:out value = "${drink.ratingAvg}"/></span>
@@ -260,15 +272,20 @@ $( document ).ready(function() {
 		<div class="list-group">
 			<a href="#" class="list-group-item active">
 				<h4 class="list-group-item-heading">Description:</h4>
-				<p class="list-group-item-text"><c:out value = "${drink.description}"/></p>
+				<p class="list-group-item-text"><c:out value = "${drink.description.description}"/></p>
 			</a>
+			<div>
+					<lable> Source:
+		<c:out value = "${drink.description.source}"/>
+		</lable>
+			</div>
 		</div>
 
 			<div class="list-group-item active">
 
     <div class="row lead">
         <p>Rate Beer</p>
-        <div id="stars-existing" class="starrr" data-rating='4'></div>
+        <div id="stars-existing" class="starrr" data-rating='4'> </div>
         You gave a rating of <span id="count-existing">4</span> star(s)
     </div>
 </div>

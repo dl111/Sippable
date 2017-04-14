@@ -16,6 +16,27 @@
 	<title>Log In &amp; Sign Up Form</title>
 </head>
 <body>
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '265099857284372',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+    FB.AppEvents.logPageView();   
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 	<header role="banner">
 <!-- 		<div id="cd-logo"><a href="#0"><img src="static/img/cd-logo.svg" alt="Logo"></a></div> -->
 
@@ -60,6 +81,11 @@
 					<p class="fieldset">
 						<input class="full-width" type="submit" value="Login">
 					</p>
+					<p class="fieldset">
+					<fb:login-button 
+  scope="public_profile,email"
+  onlogin="checkLoginState();">
+</fb:login-button></p>
 				</form>
 				
 				<p class="cd-form-bottom-message"><a href="#0">Forgot your password?</a></p>
