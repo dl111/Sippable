@@ -12,5 +12,4 @@ public class ReturnHome {
 	public String getBeerList(){
 		return "welcome";
 	}
-
 }
