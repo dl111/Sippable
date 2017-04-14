@@ -1,3 +1,4 @@
+
 package com.sippable.controllers;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.sippable.*;
 import com.sippable.beans.Drink;
 import com.sippable.beans.Users;
-import com.sippable.dao.DrinkDao;
 import com.sippable.beans.Users;
 import com.sippable.service.DrinkService;
 import com.sippable.service.UserServiceImpl;
@@ -33,7 +33,6 @@ public class LoginController {
 	
 	@Autowired
 	DrinkService drinkService;
-	
 	
 /*	@ModelAttribute("someInfo")
 	public String addInfoToRequestScope(){
@@ -62,8 +61,11 @@ System.out.println(modelMap.get("user"));
  boolean isauth = userService.isAuth(email, password);
  if(isauth == true)
  {
-	 user = userService.getUserByEmail(email);
-	 session.setAttribute("user", user);
+
+
+	 
+
+	
 	 return "welcome";
 
  }
@@ -95,3 +97,4 @@ System.out.println(modelMap.get("user"));
 
 	
 }
+
