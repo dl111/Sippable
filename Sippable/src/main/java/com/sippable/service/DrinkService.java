@@ -33,6 +33,15 @@ public class DrinkService {
 		
 	}
 	
+	public List<Drink> getSearch(String str, String search, boolean isFirst){
+		return dao.getSearch(str, search, isFirst);
+	}
+	
+	
+	public List<Drink> getAllDrinksByRating(){
+		return dao.getAllDrinksByRating();
+	}
+	
 	public List<Drink> getAllDrinks(){
 		return dao.getAllDrinks();
 	}
