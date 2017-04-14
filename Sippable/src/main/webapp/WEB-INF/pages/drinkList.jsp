@@ -16,6 +16,8 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -39,7 +41,36 @@ body {
 
 .table{
 	color : black;
+	border-spacing:0; 
+	border:1px solid gray;
 	
+}
+
+table.table tbody td {
+    color: #3D3D3D;
+    padding: 4px;
+    background-color: #FFF;
+    vertical-align: top;
+}
+table.table tbody tr.odd td {
+    background-color:#F0F0F6;
+}
+
+table th { width:150px;
+           border:1px outset gray;
+           background-color:#3C78B5;
+           color:White;
+           
+}
+table td { width:150px; border:1px solid gray;}
+
+#searchButton{
+	color : black;
+}
+
+#list{
+	margin-right:100px;
+	margin-left:100px;
 }
 </style>
 
@@ -128,11 +159,15 @@ body {
 </div>
 <br>
 <div id="textDiv" align="center">
+<span>
 <input type="text" id="searchField">
+<button id="searchButton">search</button>
+</span>
+
 </div>
 
 <br>
-<div align="center" id="list">
+<div id="list" >
 
 </div> 
 
@@ -221,11 +256,13 @@ $( document ).ready(function() {
 				//console.log(data)
 				$("#list").html(data);			
 			});	
-	$("#searchField").blur(getTable);
-	$('#checkboxes-0').change(getTable);
-	$('#checkboxes-1').change(getTable);
-	$('#checkboxes-2').change(getTable);
-	$('#checkboxes-3').change(getTable);
+		
+	//$("#searchField").blur(getTable);
+	//$('#checkboxes-0').change(getTable);
+	//$('#checkboxes-1').change(getTable);
+	//$('#checkboxes-2').change(getTable);
+	//$('#checkboxes-3').change(getTable);
+	$('#searchButton').click(getTable);
 	  
 	
 });
