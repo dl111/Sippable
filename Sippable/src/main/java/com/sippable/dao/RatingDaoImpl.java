@@ -69,7 +69,7 @@ public class RatingDaoImpl implements RatingDao{
 		
 		Rating rating = (Rating)query.uniqueResult();
 		session.getTransaction().commit();
-		session.close();
+
 		return rating;
 	}
 
