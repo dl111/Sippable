@@ -75,5 +75,16 @@ public class DrinkDaoImpl implements DrinkDao{
         sess.close();
         return list;
 	}
+	
+	public void updateDrink(Drink d){
+	Session sess = HibernateUtil.getSession();
+	Transaction tx = sess.beginTransaction();
+	sess.update(d);
+	sess.flush();
+	//List<Rating> ratings = q.list();
+	
+	tx.commit();
+	sess.close();
+	}
 
 }

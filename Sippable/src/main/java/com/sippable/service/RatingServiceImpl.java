@@ -48,6 +48,11 @@ public class RatingServiceImpl implements RatingService{
 		
 	}
 	
+	@Override
+	public void updateRating(Rating r){
+		dao.setUserRating(r);
+	}
+	
 	
 
 }

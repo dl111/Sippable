@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.sippable.*;
 import com.sippable.beans.Drink;
 import com.sippable.beans.Users;
+import com.sippable.dao.DrinkDao;
 import com.sippable.beans.Users;
 import com.sippable.service.DrinkService;
 import com.sippable.service.UserServiceImpl;
@@ -32,6 +33,7 @@ public class LoginController {
 	
 	@Autowired
 	DrinkService drinkService;
+	
 	
 /*	@ModelAttribute("someInfo")
 	public String addInfoToRequestScope(){
@@ -60,16 +62,10 @@ System.out.println(modelMap.get("user"));
  boolean isauth = userService.isAuth(email, password);
  if(isauth == true)
  {
-<<<<<<< HEAD
-	 
+	 user = userService.getUserByEmail(email);
+	 session.setAttribute("user", user);
 	 return "welcome";
-=======
 
-	 Drink dr = drinkService.getDrink(100000);
-	 modelMap.addAttribute("drinkToDisplay", dr.getDrinkName());
-
-	 return "/drinkList";
->>>>>>> 59e66e3f9b4ae29af001969f671caa2a32880d15
  }
 //userService.
 

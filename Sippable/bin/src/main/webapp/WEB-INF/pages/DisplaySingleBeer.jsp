@@ -66,21 +66,16 @@
 }
 
 body {
-
-	background-image:url("https://images8.alphacoders.com/413/413078.jpg"); 
-
+	background-image: url("https://images8.alphacoders.com/413/413078.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
-	media-align:center;
+	media-align: center;
 }
 
-.mrpoopants{
-background-color: cyan;
-background-size: cover;
-
-
+.mrpoopants {
+	background-color: cyan;
+	background-size: cover;
 }
-
 </style>
 
 <script>
@@ -120,9 +115,20 @@ var __slice = [].slice;
         return _this.syncRating();
       });
       this.$el.on('click.starrr', 'span', function(e) {
-        return _this.setRating(_this.$el.find('span').index(e.currentTarget) + 1);
-      });
-      this.$el.on('starrr:change', this.options.change);
+	alert( _this.$el.find('span').index(e.currentTarget) + 1);
+	  var rateBeer = "rate/";
+	  var rate = _this.$el.find('span').index(e.currentTarget) + 1;
+	  var id = 300000;
+	  var str = "rate/" + rate + "/" + id;
+
+
+         $.get(str, function(data, status){		
+	  	//console.log(data)
+	  	 $("#count-existing").html(data);	 		
+	  });	
+    return _this.setRating(_this.$el.find('span').index(e.currentTarget) + 1);
+  });
+  this.$el.on('starrr:change', this.options.change);
     }
 
     Starrr.prototype.createStars = function() {
@@ -208,74 +214,79 @@ $( document ).ready(function() {
 <body>
 
 
-<div class="header">
-	<div class="page-header">
-		<h1><c:out value = "${drink.drinkName}"/></h1>
-	</div>
-</div>
-
-<div class = "mrpoopants">
-	<div class="image">
-
-		<img
-			src="https://tse4.mm.bing.net/th?id=OIP.94Ls5N7SrpT6ohv7YXe4ggEsDH&w=289&h=192&c=7&qlt=90&o=4&dpr=1.25&pid=1.7"
-			alt="..." class="img-thumbnail" align="center" border="5" width="">
-
-
-	</div>
-
-	<div class="main">
-		<ul class="list-group">
-			<li class="list-group-item"><span class="badge"> <c:out
-						value="${drink.ibu}" />
-			</span> ibu</li>
-		</ul>
-		<ul class="list-group">
-			<li class="list-group-item"><span class="badge"><c:out
-						value="${drink.aroma}" /></span> aroma</li>
-		</ul>
-		<ul class="list-group">
-			<li class="list-group-item"><span class="badge"><c:out value = "${drink.color}"/></span>
-				appearance</li>
-		</ul>
-		<ul class="list-group">
-			<li class="list-group-item"><span class="badge"><c:out value = "${drink.alcholContent}"/></span> alcohol
-				content</li>
-		</ul>
-		<ul class="list-group">
-			<li class="list-group-item"><span class="badge"><c:out value = "${drink.brewer}"/></span>
-				brewer</li>
-		</ul>
-		<ul class="list-group">
-			<li class="list-group-item"><span class="badge"><c:out value = "${drink.bevType}"/></span> Type of beer</li>
-		</ul>
-			<ul class="list-group">
-			<li class="list-group-item"><span class="badge"><c:out value = "${drink.ratingAvg}"/></span>
-				Rating</li>
-		</ul>
-	</div>
-	<div class="main2">
-
-		<div class="list-group">
-			<a href="#" class="list-group-item active">
-				<h4 class="list-group-item-heading">Description:</h4>
-				<p class="list-group-item-text"><c:out value = "${drink.description}"/></p>
-			</a>
+	<div class="header">
+		<div class="page-header">
+			<h1>
+				<c:out value="${drink.drinkName}" />
+			</h1>
 		</div>
+	</div>
+
+	<div class="mrpoopants">
+		<div class="image">
+
+			<img
+				src="https://tse4.mm.bing.net/th?id=OIP.94Ls5N7SrpT6ohv7YXe4ggEsDH&w=289&h=192&c=7&qlt=90&o=4&dpr=1.25&pid=1.7"
+				alt="..." class="img-thumbnail" align="center" border="5" width="">
+
+
+		</div>
+
+		<div class="main">
+			<ul class="list-group">
+				<li class="list-group-item"><span class="badge"> <c:out
+							value="${drink.ibu}" />
+				</span> ibu</li>
+			</ul>
+			<ul class="list-group">
+				<li class="list-group-item"><span class="badge"><c:out
+							value="${drink.aroma}" /></span> aroma</li>
+			</ul>
+			<ul class="list-group">
+				<li class="list-group-item"><span class="badge"><c:out
+							value="${drink.color}" /></span> appearance</li>
+			</ul>
+			<ul class="list-group">
+				<li class="list-group-item"><span class="badge"><c:out
+							value="${drink.alcholContent}" /></span> alcohol content</li>
+			</ul>
+			<ul class="list-group">
+				<li class="list-group-item"><span class="badge"><c:out
+							value="${drink.brewer}" /></span> brewer</li>
+			</ul>
+			<ul class="list-group">
+				<li class="list-group-item"><span class="badge"><c:out
+							value="${drink.bevType}" /></span> Type of beer</li>
+			</ul>
+			<ul class="list-group">
+				<li class="list-group-item"><span class="badge"><c:out
+							value="${drink.ratingAvg}" /></span> Rating</li>
+			</ul>
+		</div>
+		<div class="main2">
+
+			<div class="list-group">
+				<a href="#" class="list-group-item active">
+					<h4 class="list-group-item-heading">Description:</h4>
+					<p class="list-group-item-text">
+						<c:out value="${drink.description}" />
+					</p>
+				</a>
+			</div>
 
 			<div class="list-group-item active">
 
-    <div class="row lead">
-        <p>Rate Beer</p>
-        <div id="stars-existing" class="starrr" data-rating='4'></div>
-        You gave a rating of <span id="count-existing">4</span> star(s)
-    </div>
-</div>
+				<div class="row lead">
+					<p>Rate Beer</p>
+					<div id="stars-existing" class="starrr" data-rating='4'></div>
+					You gave a rating of <span id="count-existing">4</span> star(s)
+				</div>
+			</div>
+		</div>
+
+
+		<div class="accordianthing"></div>
 	</div>
-	
-	
-	<div class="accordianthing"></div>
-</div>
 
 
 

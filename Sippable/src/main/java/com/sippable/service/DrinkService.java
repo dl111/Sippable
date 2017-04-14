@@ -1,6 +1,7 @@
 package com.sippable.service;
 
 import java.util.List;
+import java.util.Set;
 
 import org.apache.taglibs.standard.lang.jstl.test.beans.PublicInterface2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.sippable.beans.Description;
 import com.sippable.beans.Drink;
 import com.sippable.beans.Image;
+import com.sippable.beans.Rating;
 import com.sippable.dao.DrinkDao;
 import com.sippable.dao.DrinkDaoImpl;
 
@@ -24,10 +26,11 @@ public class DrinkService {
 	
 	
 	public void addDrink(int drinkId, String drinkName, String aroma, String color, String brewer, double ratingAvg,
-			double alcholContent, double ibu, Description description, Image image, int bevType, int drinkType){
+			double alcholContent, double ibu, Description description, Image image,Set<Rating>listRaitings,int bevType, int drinkType){
 		
-		Drink drink = new Drink(drinkId, drinkName, aroma, color, brewer, ratingAvg,
-				alcholContent, ibu, description, image, bevType, drinkType);
+		Drink drink = new Drink( drinkId,  drinkName,  aroma,  color,  brewer,  ratingAvg,
+				 alcholContent,  ibu,  description,  image,  listRaitings,
+				 bevType,  drinkType);
 		
 		dao.addDrink(drink);
 		
@@ -58,6 +61,11 @@ public class DrinkService {
 	public Image getDrinkImage(Drink drink){
 		Image image = drink.getImage();
 		return image;
+	}
+	
+	public void updateDrink(Drink d){
+		
+		dao.updateDrink(d);
 	}
 	
 	

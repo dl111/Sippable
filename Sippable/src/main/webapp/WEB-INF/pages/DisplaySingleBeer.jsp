@@ -10,7 +10,7 @@
 <!-- Latest compiled and minified CSS -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.5/angular.min.js"></script>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -120,6 +120,19 @@ var __slice = [].slice;
         return _this.syncRating();
       });
       this.$el.on('click.starrr', 'span', function(e) {
+    	  alert(_this.$el.find('span').index(e.currentTarget) + 1);
+    	  alert("USER ID -> " +  ${sessionScope.user.userid});
+    	  var rateBeer = "rate/";
+    	  var rate = _this.$el.find('span').index(e.currentTarget) + 1;
+    	  var id = ${drink.drinkId};
+    	  var userid = ${sessionScope.user.userid}
+    	  var str = "rate/" + rate + "/" + id + "/" +userid;
+
+
+             $.get(str, function(data, status){		
+    	  	//console.log(data)
+    	  	 $("#count-existing").html(data);	 		
+    	  });	
         return _this.setRating(_this.$el.find('span').index(e.currentTarget) + 1);
       });
       this.$el.on('starrr:change', this.options.change);
@@ -271,13 +284,22 @@ $( document ).ready(function() {
         You gave a rating of <span id="count-existing">4</span> star(s)
     </div>
 </div>
+
+
+
+
 	</div>
+
 	
 	
 	<div class="accordianthing"></div>
 </div>
 
+<script>
 
+
+
+</script>
 
 </body>
 </html>
