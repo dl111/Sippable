@@ -2,29 +2,19 @@ package com.sippable.controllers;
 
 import java.util.Set;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sippable.beans.Drink;
-import com.sippable.beans.Image;
 import com.sippable.beans.Rating;
-import com.sippable.beans.Users;
 import com.sippable.service.DrinkService;
-import com.sippable.service.RatingService;
 import com.sippable.service.RatingServiceImpl;
-import com.sippable.service.UserService;
 import com.sippable.service.UserServiceImpl;
 
-import net.sf.ehcache.pool.sizeof.AgentSizeOf;
-import oracle.net.aso.i;
 
 @Controller
 public class BeerRateingController {
