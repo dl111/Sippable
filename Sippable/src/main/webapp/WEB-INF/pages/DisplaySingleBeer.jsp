@@ -211,12 +211,17 @@ $( document ).ready(function() {
 	<div class="mrpoopants">
 		<div class="image">
 
-			<img
-				src="https://tse4.mm.bing.net/th?id=OIP.94Ls5N7SrpT6ohv7YXe4ggEsDH&w=289&h=192&c=7&qlt=90&o=4&dpr=1.25&pid=1.7"
-				alt="..." class="img-thumbnail" align="center" border="5" width="">
+		<img
+			src=<c:out
+						value="${drink.image.url}" />
+			alt="..." class="img-thumbnail" align="center" border="5" width="">
 
-
-		</div>
+	<div>
+		<lable>Source:
+		<c:out value = "${drink.image.source}"/>
+		</lable>
+	</div>
+	</div>
 
 		<div class="main">
 			<ul class="list-group">
@@ -260,14 +265,17 @@ $( document ).ready(function() {
 		</div>
 		<div class="main2">
 
-			<div class="list-group">
-				<a href="#" class="list-group-item active">
-					<h4 class="list-group-item-heading">Description:</h4>
-					<p class="list-group-item-text">
-						<c:out value="${drink.description}" />
-					</p>
-				</a>
+		<div class="list-group">
+			<a href="#" class="list-group-item active">
+				<h4 class="list-group-item-heading">Description:</h4>
+				<p class="list-group-item-text"><c:out value = "${drink.description.description}"/></p>
+			</a>
+			<div>
+					<lable> Source:
+		<c:out value = "${drink.description.source}"/>
+		</lable>
 			</div>
+		</div>
 
 			<div class="list-group-item active">
 
