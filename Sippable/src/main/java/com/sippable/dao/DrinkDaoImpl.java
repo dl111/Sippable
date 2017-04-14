@@ -80,10 +80,10 @@ public class DrinkDaoImpl implements DrinkDao{
 		}
 		Session sess = HibernateUtil.getSession();
 			if(isFirst){
-				str += " WHERE drinkName like :userSearch";
+				str += " WHERE lower(drinkName) like lower( :userSearch)";
 			}
 			else{
-				str += " AND drinkName like :userSearch";
+				str += " AND lower(drinkName) like lower( :userSearch )";
 			}
 			
 			//System.out.println(str);
@@ -91,7 +91,7 @@ public class DrinkDaoImpl implements DrinkDao{
 			//SQLQuery s = sess.createSQLQuery(str);
 			Query q = sess.createQuery(str);
 			q.setString("userSearch", search +"%");
-			System.out.println(q.getQueryString());
+			//System.out.println(q.getQueryString());
 			List<Drink> list = q.list();
 	        sess.close();
 	        return list;

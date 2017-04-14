@@ -23,6 +23,29 @@ body {
 #header{
 		color: white;
 }
+
+#list{
+	margin-right:100px;
+	margin-left:100px;
+}
+
+table.table tbody td {
+    color: #3D3D3D;
+    padding: 4px;
+    background-color: #FFF;
+    vertical-align: top;
+}
+table.table tbody tr.odd td {
+    background-color:#F0F0F6;
+}
+
+table th { width:150px;
+           border:1px outset gray;
+           background-color:#3C78B5;
+           color:White;
+           
+}
+table td { width:150px; border:1px solid gray;}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Top Ten</title>
@@ -45,7 +68,8 @@ body {
 	
 	
 	<h2 align="center" id="header">Top Ten Drinks</h2>
-  <table class="table" align="center" border="1">
+	<div id="list">
+  <table class="table" align="center" border="1" style=width:100%>
   <thead class="thead-default">
     <tr bgcolor="#b3b3cc" align="center">
 	<th style="text-align:center">BEER NAME</th>
@@ -83,6 +107,7 @@ body {
    
   </tbody>
 </table>	
+</div>
 
 
 </body>
