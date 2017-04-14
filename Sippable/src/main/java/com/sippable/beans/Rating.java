@@ -2,11 +2,15 @@ package com.sippable.beans;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -25,23 +29,37 @@ public class Rating implements Serializable{
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="RATING_SEQ")
 	int rateid;
 	
-	@Column(name="USER_ID")
-	int userid;
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name="USER_ID")
+	Users user;
 	
-	@Column(name="DRINK_ID")
-	int drinkid;
+
+	//
 	
 	@Column(name="RATE")
 	int rate;
+	//////////////////////////////////
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "DRINK_ID")
+	private Drink drink;
 	
+	
+	
+	
+	
+	public Rating(int rateid, Users user, int drinkid, int rate) {
+		super();
+		this.rateid = rateid;
+		this.user = user;
+
+		this.rate = rate;
+		this.drink = drink;
+	}
+
+	//////////////////////////////////////////
 	public Rating(){};
 	
-	public Rating(int rateid, int userid, int drinkid, int rate){
-		this.rateid = rateid;
-		this.userid = userid;
-		this.drinkid =drinkid;
-		this.rate = rate;
-	}
+
 	
 	public int getRateid() {
 		return rateid;
@@ -51,21 +69,29 @@ public class Rating implements Serializable{
 		this.rateid = rateid;
 	}
 
-	public int getUserid() {
-		return userid;
+	public Users getUser() {
+		return user;
 	}
 
-	public void setUserid(int userid) {
-		this.userid = userid;
+	public Drink getDrink() {
+		return drink;
 	}
 
-	public int getDrinkid() {
+	public void setDrink(Drink drink) {
+		this.drink = drink;
+	}
+
+	public void setUser(Users user) {
+		this.user = user;
+	}
+
+/*	public int getDrinkid() {
 		return drinkid;
 	}
 
 	public void setDrinkid(int drinkid) {
 		this.drinkid = drinkid;
-	}
+	}*/
 
 	public int getRate() {
 		return rate;
@@ -77,7 +103,7 @@ public class Rating implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Rating [rateid=" + rateid + ", userid=" + userid + ", drinkid=" + drinkid + ", rate=" + rate + "]";
+		return "";//"Rating [rateid=" + rateid + ", userid=" + user + ", drinkid=" + drinkid + ", rate=" + rate + "]";
 	}
 	
 	

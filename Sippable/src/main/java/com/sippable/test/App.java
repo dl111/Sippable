@@ -19,6 +19,8 @@ public class App
     public static void main( String[] args )
     {
     
+    	
+    	
 //    		Image image = new Image();
 //    		Description description = new Description();
 //    		
@@ -28,8 +30,14 @@ public class App
 //    		description.setDescription("asdasdasdasdfuck you");
 //    		description.setSource("asdasdasdadasd");
 //    		
-//    		Drink drink = new Drink();
-//    		drink.setImage(image);
+		Session session = HibernateUtil.getSession();
+
+    	Drink drink =(Drink)session.get(Drink.class, 300000);
+    	session.close();
+System.out.println(drink.getListRaitings().isEmpty());
+
+
+   		//    		drink.setImage(image);
 //    		drink.setDescription(description);
 //    		
 //    		drink.setBevType(1);

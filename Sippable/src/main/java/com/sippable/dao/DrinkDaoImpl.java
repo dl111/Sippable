@@ -1,3 +1,5 @@
+
+
 package com.sippable.dao;
 
 import java.util.List;
@@ -98,5 +100,18 @@ public class DrinkDaoImpl implements DrinkDao{
 		//System.out.print(str);
 		
 	}
+	
+	public void updateDrink(Drink d){
+		Session sess = HibernateUtil.getSession();
+		Transaction tx = sess.beginTransaction();
+		sess.update(d);
+		sess.flush();
+		//List<Rating> ratings = q.list();
+		
+		tx.commit();
+		sess.close();
+		}
 
 }
+
+
