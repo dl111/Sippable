@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -10,7 +11,8 @@
 <!-- Latest compiled and minified CSS -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.5/angular.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.5/angular.min.js"></script>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -33,41 +35,50 @@
 	box-sizing: content-box;
 	alignment-baseline:
 }
+
 .header {
 	padding: 15px;
-	color: #67655D;
+	color: #ffffff;
 }
+
 .image {
 	width: 25%;
 	float: left;
 	padding: 15px;
 	margin-left: 8cm;
+	color: #ffffff;
 }
+
 .main {
 	width: 25%;
 	float: left;
 	padding: 15px;
 }
+
 .main2 {
 	width: 50%;
 	float: left;
 	padding: 15px;
 	margin-left: 8cm;
+	color: #ffffff;
 }
+
 .accordianthing {
 	width: 15%;
 	float: left;
 	padding: 15px;
 }
+
 body {
-	background-image:url("https://images8.alphacoders.com/413/413078.jpg"); 
+	background-image: url("https://images8.alphacoders.com/413/413078.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
-	media-align:center;
+	media-align: center;
 }
-.mrpoopants{
-background-color: cyan;
-background-size: cover;
+
+.mrpoopants {
+	background-color: cyan;
+	background-size: cover;
 }
 </style>
 
@@ -189,81 +200,103 @@ $( document ).ready(function() {
 <body>
 
 
-<div class="header">
-	<div class="page-header">
-		<h1><c:out value = "${drink.drinkName}"/></h1>
+	<div class="header">
+		<div class="page-header">
+			<h1>
+				<c:out value="${drink.drinkName}" />
+			</h1>
+		</div>
 	</div>
-</div>
 
-<div class = "mrpoopants">
-	<div class="image">
+	<div class="mrpoopants">
+		<div class="image">
 
 		<img
-			src="https://tse4.mm.bing.net/th?id=OIP.94Ls5N7SrpT6ohv7YXe4ggEsDH&w=289&h=192&c=7&qlt=90&o=4&dpr=1.25&pid=1.7"
+			src=<c:out
+						value="${drink.image.url}" />
 			alt="..." class="img-thumbnail" align="center" border="5" width="">
 
-
+	<div>
+		<lable>Source:
+		<c:out value = "${drink.image.source}"/>
+		</lable>
+	</div>
 	</div>
 
-	<div class="main">
-		<ul class="list-group">
-			<li class="list-group-item"><span class="badge"> <c:out
-						value="${drink.ibu}" />
-			</span> ibu</li>
-		</ul>
-		<ul class="list-group">
-			<li class="list-group-item"><span class="badge"><c:out
-						value="${drink.aroma}" /></span> aroma</li>
-		</ul>
-		<ul class="list-group">
-			<li class="list-group-item"><span class="badge"><c:out value = "${drink.color}"/></span>
-				appearance</li>
-		</ul>
-		<ul class="list-group">
-			<li class="list-group-item"><span class="badge"><c:out value = "${drink.alcholContent}"/></span> alcohol
-				content</li>
-		</ul>
-		<ul class="list-group">
-			<li class="list-group-item"><span class="badge"><c:out value = "${drink.brewer}"/></span>
-				brewer</li>
-		</ul>
-		<ul class="list-group">
-			<li class="list-group-item"><span class="badge"><c:out value = "${drink.bevType}"/></span> Type of beer</li>
-		</ul>
+		<div class="main">
 			<ul class="list-group">
-			<li class="list-group-item"><span class="badge"><c:out value = "${drink.ratingAvg}"/></span>
-				Rating</li>
-		</ul>
-	</div>
-	<div class="main2">
+				<li class="list-group-item"><span class="badge"> <c:out
+							value="${drink.ibu}" />
+				</span> ibu</li>
+			</ul>
+			<ul class="list-group">
+				<li class="list-group-item"><span class="badge"><c:out
+							value="${drink.aroma}" /></span> aroma</li>
+			</ul>
+			<ul class="list-group">
+				<li class="list-group-item"><span class="badge"><c:out
+							value="${drink.color}" /></span> appearance</li>
+			</ul>
+			<ul class="list-group">
+				<li class="list-group-item"><span class="badge"><c:out
+							value="${drink.alcholContent}" /></span> alcohol content</li>
+			</ul>
+			<ul class="list-group">
+				<li class="list-group-item"><span class="badge"><c:out
+							value="${drink.brewer}" /></span> brewer</li>
+			</ul>
+			<ul class="list-group">
+				<li class="list-group-item"><span class="badge"> <c:if
+							test="${drink.drinkType == 1}">
+							<c:out value="Ale" />
+						</c:if> <c:if test="${drink.drinkType == 2}">
+							<c:out value="IPA" />
+						</c:if> <c:if test="${drink.drinkType == 3}">
+							<c:out value="Lager" />
+						</c:if> <c:if test="${drink.drinkType == 4}">
+							<c:out value="Wheat" />
+						</c:if>
+				</span> Type of beer</li>
+			</ul>
+			<ul class="list-group">
+				<li class="list-group-item"><span class="badge"><c:out
+							value="${drink.ratingAvg}" /></span> Rating</li>
+			</ul>
+		</div>
+		<div class="main2">
 
 		<div class="list-group">
 			<a href="#" class="list-group-item active">
 				<h4 class="list-group-item-heading">Description:</h4>
-				<p class="list-group-item-text"><c:out value = "${drink.description}"/></p>
+				<p class="list-group-item-text"><c:out value = "${drink.description.description}"/></p>
 			</a>
+			<div>
+					<lable> Source:
+		<c:out value = "${drink.description.source}"/>
+		</lable>
+			</div>
 		</div>
 
 			<div class="list-group-item active">
 
-    <div class="row lead">
-        <p>Rate Beer</p>
-        <div id="stars-existing" class="starrr" data-rating='4'></div>
-        You gave a rating of <span id="count-existing">4</span> star(s)
-    </div>
-</div>
+				<div class="row lead">
+					<p>Rate Beer</p>
+					<div id="stars-existing" class="starrr" data-rating='4'></div>
+					You gave a rating of <span id="count-existing">4</span> star(s)
+				</div>
+			</div>
 
 
 
 
+		</div>
+
+
+
+		<div class="accordianthing"></div>
 	</div>
 
-	
-	
-	<div class="accordianthing"></div>
-</div>
-
-<script>
+	<script>
 </script>
 
 </body>
