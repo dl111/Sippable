@@ -33,75 +33,58 @@
 	box-sizing: content-box;
 	alignment-baseline:
 }
-
 .header {
 	padding: 15px;
 	color: #67655D;
 }
-
 .image {
 	width: 25%;
 	float: left;
 	padding: 15px;
 	margin-left: 8cm;
 }
-
 .main {
 	width: 25%;
 	float: left;
 	padding: 15px;
 }
-
 .main2 {
 	width: 50%;
 	float: left;
 	padding: 15px;
 	margin-left: 8cm;
 }
-
 .accordianthing {
 	width: 15%;
 	float: left;
 	padding: 15px;
 }
-
 body {
-
 	background-image:url("https://images8.alphacoders.com/413/413078.jpg"); 
-
 	background-repeat: no-repeat;
 	background-size: cover;
 	media-align:center;
 }
-
 .mrpoopants{
 background-color: cyan;
 background-size: cover;
-
-
 }
-
 </style>
 
 <script>
-
 //Starrr plugin (https://github.com/dobtco/starrr)
 var __slice = [].slice;
-
 (function($, window) {
   var Starrr;
-
   Starrr = (function() {
     Starrr.prototype.defaults = {
       rating: void 0,
       numStars: 5,
       change: function(e, value) {}
     };
-
     function Starrr($el, options) {
       var i, _, _ref,
         _this = this;
-
       this.options = $.extend({}, this.defaults, options);
       this.$el = $el;
       _ref = this.defaults;
@@ -120,15 +103,13 @@ var __slice = [].slice;
         return _this.syncRating();
       });
       this.$el.on('click.starrr', 'span', function(e) {
-    	  alert(_this.$el.find('span').index(e.currentTarget) + 1);
-    	  alert("USER ID -> " +  ${sessionScope.user.userid});
+    	  //alert(_this.$el.find('span').index(e.currentTarget) + 1);
+    	 // alert("USER ID -> " +  ${sessionScope.user.userid});
     	  var rateBeer = "rate/";
     	  var rate = _this.$el.find('span').index(e.currentTarget) + 1;
     	  var id = ${drink.drinkId};
-    	  var userid = ${sessionScope.user.userid}
+    	  var userid = ${sessionScope.user.userid};
     	  var str = "rate/" + rate + "/" + id + "/" +userid;
-
-
              $.get(str, function(data, status){		
     	  	//console.log(data)
     	  	 $("#count-existing").html(data);	 		
@@ -137,17 +118,14 @@ var __slice = [].slice;
       });
       this.$el.on('starrr:change', this.options.change);
     }
-
     Starrr.prototype.createStars = function() {
       var _i, _ref, _results;
-
       _results = [];
       for (_i = 1, _ref = this.options.numStars; 1 <= _ref ? _i <= _ref : _i >= _ref; 1 <= _ref ? _i++ : _i--) {
         _results.push(this.$el.append("<span class='glyphicon .glyphicon-star-empty'></span>"));
       }
       return _results;
     };
-
     Starrr.prototype.setRating = function(rating) {
       if (this.options.rating === rating) {
         rating = void 0;
@@ -156,10 +134,8 @@ var __slice = [].slice;
       this.syncRating();
       return this.$el.trigger('starrr:change', rating);
     };
-
     Starrr.prototype.syncRating = function(rating) {
       var i, _i, _j, _ref;
-
       rating || (rating = this.options.rating);
       if (rating) {
         for (i = _i = 0, _ref = rating - 1; 0 <= _ref ? _i <= _ref : _i >= _ref; i = 0 <= _ref ? ++_i : --_i) {
@@ -175,18 +151,14 @@ var __slice = [].slice;
         return this.$el.find('span').removeClass('glyphicon-star').addClass('glyphicon-star-empty');
       }
     };
-
     return Starrr;
-
   })();
   return $.fn.extend({
     starrr: function() {
       var args, option;
-
       option = arguments[0], args = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
       return this.each(function() {
         var data;
-
         data = $(this).data('star-rating');
         if (!data) {
           $(this).data('star-rating', (data = new Starrr($(this), option)));
@@ -198,11 +170,9 @@ var __slice = [].slice;
     }
   });
 })(window.jQuery, window);
-
 $(function() {
   return $(".starrr").starrr();
 });
-
 $( document ).ready(function() {
       
   $('#stars').on('starrr:change', function(e, value){
@@ -213,8 +183,6 @@ $( document ).ready(function() {
     $('#count-existing').html(value);
   });
 });
-
-
 </script>
 </head>
 
@@ -296,9 +264,6 @@ $( document ).ready(function() {
 </div>
 
 <script>
-
-
-
 </script>
 
 </body>
