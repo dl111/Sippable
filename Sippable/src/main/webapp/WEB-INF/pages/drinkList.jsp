@@ -24,7 +24,7 @@
 
 <style>
 body {
-   color : white;
+   color : white;		
    background-image: url("https://images8.alphacoders.com/413/413078.jpg");
    background-size: cover;
 }
