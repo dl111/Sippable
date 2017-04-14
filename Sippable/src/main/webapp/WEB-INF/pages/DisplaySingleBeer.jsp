@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -36,7 +35,7 @@
 	alignment-baseline:
 }
 
-.header {
+.headerlower {
 	padding: 15px;
 	color: #ffffff;
 }
@@ -70,15 +69,15 @@
 }
 
 body {
-	background-image: url("https://images8.alphacoders.com/413/413078.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
-	media-align: center;
+	background-image: url("https://images8.alphacoders.com/413/413078.jpg") !important;
+/* 	background-repeat: no-repeat !important;
+	background-size: cover !important;
+	media-align: center !important; */
 }
 
 .mrpoopants {
-	background-color: cyan;
-	background-size: cover;
+	 background-color: cyan; 
+	 background-size: cover; 
 }
 </style>
 
@@ -195,12 +194,78 @@ $( document ).ready(function() {
   });
 });
 </script>
+<!-- <link
+	href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900'
+	rel='stylesheet' type='text/css'>
+<link
+	href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700'
+	rel='stylesheet' type='text/css'> -->
+<!-- <script src="../static/js/jquery.min.js"></script>
+ -->
+
+<link href="../static/css/bootstraphome.css" rel="stylesheet"
+	type="text/css" media="all">
+<link href="../static/css/stylehome.css" rel="stylesheet" type="text/css"
+	media="all" />
+	
+	<link rel="stylesheet" href="../static/css/style.css">
+	
+	
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords"
+	content="Sippable" />
+<!-- <script type="application/x-javascript">
+	
+	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+</script> -->
+
+
+
 </head>
 
 <body>
 
-
+	<!-- header -->
 	<div class="header">
+		<div class="container">
+			<div class="logo">
+				<a href="../welcome"><img src="../static/img/logo.png"
+					class="img-responsive" alt=""></a>
+			</div>
+
+			<div class="head-nav aleft">
+				<span class="menu"> </span>
+				<ul class="cl-effect-1">
+					<li class="active"><a href="../welcome">Home</a></li>
+					<li><a href="../allbeers">Find a Beer</a></li>
+					<li><a href="../topten">Our top 10</a></li>
+					<li><a href="blog.html">Latest articles</a></li>
+					<li><a href="404.html">Your Profile</a></li>
+					<div class="clearfix"></div>
+				</ul>
+			</div>
+			<!-- script-for-nav -->
+			<script>
+				$("span.menu").click(function() {
+					$(".head-nav ul").slideToggle(300, function() {
+						// Animation complete.
+					});
+				});
+			</script>
+			<!-- script-for-nav -->
+
+
+
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<!-- header -->
+	
+
+
+	<div class="headerlower">
 		<div class="page-header">
 			<h1>
 				<c:out value="${drink.drinkName}" />
@@ -295,9 +360,6 @@ $( document ).ready(function() {
 
 		<div class="accordianthing"></div>
 	</div>
-
-	<script>
-</script>
 
 </body>
 </html>
