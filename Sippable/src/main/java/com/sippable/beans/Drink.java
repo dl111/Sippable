@@ -2,6 +2,8 @@
 package com.sippable.beans;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 //import javax.persistence.CascadeType;
@@ -13,11 +15,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 //import javax.persistence.JoinColumn;
 //import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name="DRINK")
@@ -63,8 +69,22 @@ public class Drink implements Serializable{
 	@JoinColumn(name = "IMAGE")
 	private Image image;
 	
+	@OneToMany(mappedBy = "drink",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private Set<Rating> listRaitings;
 	
-//	@OneToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	
+	
+	
+	
+public Set<Rating> getListRaitings() {
+		return listRaitings;
+	}
+
+	public void setListRaitings(Set<Rating> listRaitings) {
+		this.listRaitings = listRaitings;
+	}
+
+	//	@OneToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 //	@JoinColumn(name="DRINKTYPE")
 //	private String drinkType;
 //	
@@ -103,7 +123,8 @@ public class Drink implements Serializable{
 
 
 	public Drink(int drinkId, String drinkName, String aroma, String color, String brewer, double ratingAvg,
-			double alcholContent, double ibu, Description description, Image image, int bevType, int drinkType) {
+			double alcholContent, double ibu, Description description, Image image, Set<Rating> listRaitings,
+			int bevType, int drinkType) {
 		super();
 		this.drinkId = drinkId;
 		this.drinkName = drinkName;
@@ -115,6 +136,7 @@ public class Drink implements Serializable{
 		this.ibu = ibu;
 		this.description = description;
 		this.image = image;
+		this.listRaitings = listRaitings;
 		this.bevType = bevType;
 		this.drinkType = drinkType;
 	}

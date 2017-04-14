@@ -14,5 +14,6 @@ public interface RatingService {
 	public List<Rating> getListOfBeerRatings(int drinkid);
 	public List<Rating> getListOfUserRatings(int userid);
 	public void createNewRating(Rating rating);
+	public void updateRating(Rating r);
 	
 }

@@ -50,4 +50,10 @@ public class UserServiceImpl implements UserService{
 		return user;
 	}
 
+	@Override
+	public void changeUserRateing(int rate) {
+		// TODO Auto-generated method stub
+		 dao.changeUserRateing(rate);
+	}
+
 }

@@ -1,3 +1,4 @@
+
 package com.sippable.controllers;
 
 import javax.servlet.http.HttpServletRequest;
@@ -60,8 +61,8 @@ System.out.println(modelMap.get("user"));
  boolean isauth = userService.isAuth(email, password);
  if(isauth == true)
  {
-
-
+	 user = userService.getUserByEmail(email);
+	 session.setAttribute("user", user);
 	 
 
 	
@@ -96,3 +97,4 @@ System.out.println(modelMap.get("user"));
 
 	
 }
+
