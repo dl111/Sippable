@@ -144,18 +144,22 @@ $( document ).ready(function() {
 		if(document.getElementById('checkboxes-3').checked){
 			var wheat = '1';
 		}
+
 		//ADD HERE!!!
 		var searchField = 'a' + $("#searchField").val();
 		var str = "search/drink/" + ale + "/" + ipa + "/" + lager + "/" + wheat + "/" + searchField;
+
 		$.get(str, function(data, status){		
 				//console.log(data)
 				$("#list").html(data);			
 			});	
 		
 	}
+
 	//ADD THIS TO THE FRONT OF THE TWO VAR STRINGS TO MAKE IT WORK ON YOUR MACHINE!!!!
 	//var str = "http://localhost:PORTNUM/Sippable/"
 	//DELETE IT TO MAKE IT WORK WHEN YOU PUSH TO STAGING
+
 	
 	//get all the drinks
 	//ADD HERE!!!http://localhost:8085/Sippable/search/drink/

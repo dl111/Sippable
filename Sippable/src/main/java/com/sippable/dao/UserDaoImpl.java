@@ -53,4 +53,15 @@ public class UserDaoImpl implements UserDao{
 	
 	}
 
+	@Override
+	public void updateUserRateing() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void changeUserRateing(int rate) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

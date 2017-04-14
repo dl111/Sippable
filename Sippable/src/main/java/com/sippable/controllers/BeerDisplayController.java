@@ -25,6 +25,7 @@ public class BeerDisplayController {
 	public String getBeer(@PathVariable Integer id, Model model){
 	Drink drink =drinkService.getDrink(id);
 	model.addAttribute("drink", drink);
+	//Userser
 	
 	return "DisplaySingleBeer";
 /*	}
