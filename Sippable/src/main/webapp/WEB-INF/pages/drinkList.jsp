@@ -22,9 +22,24 @@
 
 <style>
 body {
-   background-color: #3377ff;
-   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwq6cvb3-BfaWBxoWsF1PUzIACHfjl2GlBrkvOAS9qY1I2BFf4QR4nPak");
+   color : white;
+   background-image: url("https://images8.alphacoders.com/413/413078.jpg");
    background-size: cover;
+}
+
+#header{
+		color : white;
+}
+
+#searchField{	
+	color: black;
+	width:200px;
+	margin:auto;
+}
+
+.table{
+	color : black;
+	
 }
 </style>
 
@@ -32,15 +47,16 @@ body {
 <title>Drink List</title>
 </head>
 <body>
-	<h2 align="center">Search for Drinks</h2>	
+	<h2 align="center" id="header">Search for Drinks</h2>	
 	
 	
 	<!-- Multiple Checkboxes (inline) -->
-<div class="form-group" align="center">
+<div class="form-group" align="center" >
   <label class="col-md-4 control-label" for="checkboxes"></label>
   <div class="col-md-4">
     <label class="checkbox-inline" for="checkboxes-0">
       <input name="checkboxes" id="checkboxes-0" value="1" type="checkbox">
+      
       Ale
     </label>
     <label class="checkbox-inline" for="checkboxes-1">
@@ -56,6 +72,10 @@ body {
       Wheat
     </label>
   </div>
+</div>
+<br>
+<div id="textDiv" align="center">
+<input type="text" id="searchField">
 </div>
 
 <br>
@@ -124,22 +144,31 @@ $( document ).ready(function() {
 		if(document.getElementById('checkboxes-3').checked){
 			var wheat = '1';
 		}
-		var str = "search/drink/" + ale + "/" + ipa + "/" + lager + "/" + wheat;
+
+		//ADD HERE!!!
+		var searchField = 'a' + $("#searchField").val();
+		var str = "search/drink/" + ale + "/" + ipa + "/" + lager + "/" + wheat + "/" + searchField;
+
 		$.get(str, function(data, status){		
 				//console.log(data)
 				$("#list").html(data);			
 			});	
 		
 	}
-	//var str = "34.200.225.32:8080/Sippable/search/drink/0/0/0/0"
+
+	//ADD THIS TO THE FRONT OF THE TWO VAR STRINGS TO MAKE IT WORK ON YOUR MACHINE!!!!
+	//var str = "http://localhost:PORTNUM/Sippable/"
+	//DELETE IT TO MAKE IT WORK WHEN YOU PUSH TO STAGING
+
 	
 	//get all the drinks
-	var str = "search/drink/0/0/0/0"
+	//ADD HERE!!!http://localhost:8085/Sippable/search/drink/
+	var str = "search/drink/0/0/0/0/a";
 		$.get(str, function(data, status){		
 				//console.log(data)
 				$("#list").html(data);			
 			});	
-	
+	$("#searchField").blur(getTable);
 	$('#checkboxes-0').change(getTable);
 	$('#checkboxes-1').change(getTable);
 	$('#checkboxes-2').change(getTable);

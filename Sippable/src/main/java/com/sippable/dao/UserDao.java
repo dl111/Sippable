@@ -8,5 +8,5 @@ public interface UserDao {
 	public Users getUserById(int id);
 	public Users getUserByEmail(String email);
 	public void updateUser(Users user);
-
+	public void updateUserRateing();
 }

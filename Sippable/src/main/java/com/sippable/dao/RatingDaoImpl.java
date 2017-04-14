@@ -2,11 +2,16 @@ package com.sippable.dao;
 
 import java.util.List;
 
+
+
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.springframework.stereotype.Component;
 
+import com.sippable.beans.Drink;
 import com.sippable.beans.Rating;
+import com.sippable.beans.Users;
 import com.sippable.utils.HibernateUtil;
 
 @Component
@@ -19,6 +24,7 @@ public class RatingDaoImpl implements RatingDao{
 		sess.beginTransaction();
 		sess.save(rating);
 		sess.getTransaction().commit();
+		sess.close();
 		System.out.println("new rating created");
 	}
 
@@ -34,6 +40,7 @@ public class RatingDaoImpl implements RatingDao{
 		List<Rating> ratings = q.list();
 		
 		sess.getTransaction().commit();
+		sess.close();
 		return ratings;
 	}
 
@@ -48,7 +55,45 @@ public class RatingDaoImpl implements RatingDao{
 		List<Rating> ratings = q.list();
 		
 		sess.getTransaction().commit();
+		sess.close();
 		return ratings;
 	}
+
+	@Override
+	public Rating getUserRating(Users user, Drink drink) {
+		Session session = HibernateUtil.getSession();
+		session.beginTransaction();
+		Query query = session.createQuery("from rating where user_id = :b and drink_id = :d");
+		query.setParameter("b", user.getUserid());
+		query.setParameter("d", drink.getDrinkId());
+		
+		Rating rating = (Rating)query.uniqueResult();
+		session.getTransaction().commit();
+
+		return rating;
+	}
+
+	@Override
+	public Users getUserRating(Users user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setUserRating(Rating r) {
+		Session sess = HibernateUtil.getSession();
+		Transaction tx = sess.beginTransaction();
+		sess.update(r);
+		sess.flush();
+		//List<Rating> ratings = q.list();
+		
+		tx.commit();
+		sess.close();
+		
+	}
+	
+	
+
+	
 
 }
