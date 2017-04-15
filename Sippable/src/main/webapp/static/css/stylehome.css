@@ -1,15 +1,9 @@
-/*Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
---*/
 h4, h5, h6,
 h1, h2, h3 {margin-top: 0;}
 ul, ol {margin: 0;}
 p {margin: 0;}
-html,body{
+/* html,body{
 	font-family: 'Source Sans Pro', sans-serif;
-	background: url(../images/sos.png)no-repeat;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -22,7 +16,7 @@ body a{
 	-moz-transition:0.5s all;
 	-o-transition:0.5s all;
 	-ms-transition:0.5s all;
-}
+} */
 .header {
 	padding: 2em 0;
 }
@@ -1175,7 +1169,7 @@ i.adm1{
   line-height: 1.8em;
   margin-bottom: 19px;
 }
-.main-head-section h3 {
+/* .main-head-section h3 {
   font-size: 2em;
   color: #26313b;
   font-weight: 400;
@@ -1183,7 +1177,7 @@ i.adm1{
   padding-bottom: 15px;
   text-align: center;
   font-family: 'Libre Baskerville', serif;
-}
+} */
 .company_ad h3 {
   font-size: 1.7em;
  color: #26313b;
@@ -1415,7 +1409,7 @@ i.inter {
 }
 .main {
   padding: 12em 0px;
-  border: 1px solid #D8DADC;
+  /* border: 1px solid #D8DADC; */
 }
 .error-404 h1 {
   font-size: 12em;
@@ -1577,11 +1571,11 @@ a.b-home:hover{
 	font-weight: 700;
 	font-family: 'Libre Baskerville', serif;
 }
-.register-top-grid div, .register-bottom-grid div {
+/* .register-top-grid div, .register-bottom-grid div {
 	width: 48%;
 	float: left;
 	margin: 10px 0;
-}
+} */
 .register-top-grid span, .register-bottom-grid span {
 	color:#999;
 	font-size: 0.85em;
@@ -2167,11 +2161,11 @@ h3.m_3 {
   margin: 1em 0 0 0em;
   text-align: center;
 }
-.register-top-grid div, .register-bottom-grid div {
+/* .register-top-grid div, .register-bottom-grid div {
   width: 100%;
   float: none;
   margin: 10px 0;
-}
+} */
 div.register-bottom-grid {
   margin-top: 5em;
 }

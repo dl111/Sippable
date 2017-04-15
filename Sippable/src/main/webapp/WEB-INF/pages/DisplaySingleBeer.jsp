@@ -10,7 +10,8 @@
 <!-- Latest compiled and minified CSS -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
 
-
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.5/angular.min.js"></script>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -34,9 +35,9 @@
 	alignment-baseline:
 }
 
-.header {
+.headerlower {
 	padding: 15px;
-	color: #67655D;
+	color: #ffffff;
 }
 
 .image {
@@ -44,6 +45,7 @@
 	float: left;
 	padding: 15px;
 	margin-left: 8cm;
+	color: #ffffff;
 }
 
 .main {
@@ -57,6 +59,7 @@
 	float: left;
 	padding: 15px;
 	margin-left: 8cm;
+	color: #ffffff;
 }
 
 .accordianthing {
@@ -66,42 +69,33 @@
 }
 
 body {
-
-	background-image:url("https://images8.alphacoders.com/413/413078.jpg"); 
-
-	background-repeat: no-repeat;
-	background-size: cover;
-	media-align:center;
+	background-image: url("https://images8.alphacoders.com/413/413078.jpg") !important;
+	background-size: cover !important;
+/* 	background-repeat: no-repeat !important;
+	background-size: cover !important;
+	media-align: center !important; */
 }
 
-.mrpoopants{
-background-color: cyan;
-background-size: cover;
-
-
+.mrpoopants {
+	 background-color: cyan; 
+	 background-size: cover; 
 }
-
 </style>
 
 <script>
-
 //Starrr plugin (https://github.com/dobtco/starrr)
 var __slice = [].slice;
-
 (function($, window) {
   var Starrr;
-
   Starrr = (function() {
     Starrr.prototype.defaults = {
       rating: void 0,
       numStars: 5,
       change: function(e, value) {}
     };
-
     function Starrr($el, options) {
       var i, _, _ref,
         _this = this;
-
       this.options = $.extend({}, this.defaults, options);
       this.$el = $el;
       _ref = this.defaults;
@@ -120,21 +114,29 @@ var __slice = [].slice;
         return _this.syncRating();
       });
       this.$el.on('click.starrr', 'span', function(e) {
+    	  //alert(_this.$el.find('span').index(e.currentTarget) + 1);
+    	 // alert("USER ID -> " +  ${sessionScope.user.userid});
+    	  var rateBeer = "rate/";
+    	  var rate = _this.$el.find('span').index(e.currentTarget) + 1;
+    	  var id = ${drink.drinkId};
+    	  var userid = ${sessionScope.user.userid};
+    	  var str = "rate/" + rate + "/" + id + "/" +userid;
+             $.get(str, function(data, status){		
+    	  	//console.log(data)
+    	  	 $("#count-existing").html(data);	 		
+    	  });	
         return _this.setRating(_this.$el.find('span').index(e.currentTarget) + 1);
       });
       this.$el.on('starrr:change', this.options.change);
     }
-
     Starrr.prototype.createStars = function() {
       var _i, _ref, _results;
-
       _results = [];
       for (_i = 1, _ref = this.options.numStars; 1 <= _ref ? _i <= _ref : _i >= _ref; 1 <= _ref ? _i++ : _i--) {
         _results.push(this.$el.append("<span class='glyphicon .glyphicon-star-empty'></span>"));
       }
       return _results;
     };
-
     Starrr.prototype.setRating = function(rating) {
       if (this.options.rating === rating) {
         rating = void 0;
@@ -143,10 +145,8 @@ var __slice = [].slice;
       this.syncRating();
       return this.$el.trigger('starrr:change', rating);
     };
-
     Starrr.prototype.syncRating = function(rating) {
       var i, _i, _j, _ref;
-
       rating || (rating = this.options.rating);
       if (rating) {
         for (i = _i = 0, _ref = rating - 1; 0 <= _ref ? _i <= _ref : _i >= _ref; i = 0 <= _ref ? ++_i : --_i) {
@@ -162,18 +162,14 @@ var __slice = [].slice;
         return this.$el.find('span').removeClass('glyphicon-star').addClass('glyphicon-star-empty');
       }
     };
-
     return Starrr;
-
   })();
   return $.fn.extend({
     starrr: function() {
       var args, option;
-
       option = arguments[0], args = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
       return this.each(function() {
         var data;
-
         data = $(this).data('star-rating');
         if (!data) {
           $(this).data('star-rating', (data = new Starrr($(this), option)));
@@ -185,11 +181,9 @@ var __slice = [].slice;
     }
   });
 })(window.jQuery, window);
-
 $(function() {
   return $(".starrr").starrr();
 });
-
 $( document ).ready(function() {
       
   $('#stars').on('starrr:change', function(e, value){
@@ -200,84 +194,175 @@ $( document ).ready(function() {
     $('#count-existing').html(value);
   });
 });
-
-
 </script>
+<!-- <link
+	href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900'
+	rel='stylesheet' type='text/css'>
+<link
+	href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700'
+	rel='stylesheet' type='text/css'> -->
+<!-- <script src="../static/js/jquery.min.js"></script>
+ -->
+
+<link href="../static/css/bootstraphome.css" rel="stylesheet"
+	type="text/css" media="all">
+<link href="../static/css/stylehome.css" rel="stylesheet" type="text/css"
+	media="all" />
+	
+	<link rel="stylesheet" href="../static/css/style.css">
+	
+	
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords"
+	content="Sippable" />
+<!-- <script type="application/x-javascript">
+	
+	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+</script> -->
+
+
+
 </head>
 
 <body>
 
+	<!-- header -->
+	<div class="header">
+		<div class="container">
+			<div class="logo">
+				<a href="../welcome"><img src="../static/img/logo.png"
+					class="img-responsive" alt=""></a>
+			</div>
 
-<div class="header">
-	<div class="page-header">
-		<h1><c:out value = "${drink.drinkName}"/></h1>
+			<div class="head-nav aleft">
+				<span class="menu"> </span>
+				<ul class="cl-effect-1">
+					<li class="active"><a href="../welcome">Home</a></li>
+					<li><a href="../allbeers">Find a Beer</a></li>
+					<li><a href="../topten">Our top 10</a></li>
+					<li><a href="blog.html">Latest articles</a></li>
+					<li><a href="404.html">Your Profile</a></li>
+					<div class="clearfix"></div>
+				</ul>
+			</div>
+			<!-- script-for-nav -->
+			<script>
+				$("span.menu").click(function() {
+					$(".head-nav ul").slideToggle(300, function() {
+						// Animation complete.
+					});
+				});
+			</script>
+			<!-- script-for-nav -->
+
+
+
+			<div class="clearfix"></div>
+		</div>
 	</div>
-</div>
+	<!-- header -->
+	
 
-<div class = "mrpoopants">
-	<div class="image">
+
+	<div class="headerlower">
+		<div class="page-header">
+			<h1>
+				<c:out value="${drink.drinkName}" />
+			</h1>
+		</div>
+	</div>
+
+	<div class="mrpoopants">
+		<div class="image">
 
 		<img
-			src="https://tse4.mm.bing.net/th?id=OIP.94Ls5N7SrpT6ohv7YXe4ggEsDH&w=289&h=192&c=7&qlt=90&o=4&dpr=1.25&pid=1.7"
+			src=<c:out
+						value="${drink.image.url}" />
 			alt="..." class="img-thumbnail" align="center" border="5" width="">
 
-
+	<div>
+		<lable>Source:
+		<c:out value = "${drink.image.source}"/>
+		</lable>
+	</div>
 	</div>
 
-	<div class="main">
-		<ul class="list-group">
-			<li class="list-group-item"><span class="badge"> <c:out
-						value="${drink.ibu}" />
-			</span> ibu</li>
-		</ul>
-		<ul class="list-group">
-			<li class="list-group-item"><span class="badge"><c:out
-						value="${drink.aroma}" /></span> aroma</li>
-		</ul>
-		<ul class="list-group">
-			<li class="list-group-item"><span class="badge"><c:out value = "${drink.color}"/></span>
-				appearance</li>
-		</ul>
-		<ul class="list-group">
-			<li class="list-group-item"><span class="badge"><c:out value = "${drink.alcholContent}"/></span> alcohol
-				content</li>
-		</ul>
-		<ul class="list-group">
-			<li class="list-group-item"><span class="badge"><c:out value = "${drink.brewer}"/></span>
-				brewer</li>
-		</ul>
-		<ul class="list-group">
-			<li class="list-group-item"><span class="badge"><c:out value = "${drink.bevType}"/></span> Type of beer</li>
-		</ul>
+		<div class="main">
 			<ul class="list-group">
-			<li class="list-group-item"><span class="badge"><c:out value = "${drink.ratingAvg}"/></span>
-				Rating</li>
-		</ul>
-	</div>
-	<div class="main2">
+				<li class="list-group-item"><span class="badge"> <c:out
+							value="${drink.ibu}" />
+				</span> ibu</li>
+			</ul>
+			<ul class="list-group">
+				<li class="list-group-item"><span class="badge"><c:out
+							value="${drink.aroma}" /></span> aroma</li>
+			</ul>
+			<ul class="list-group">
+				<li class="list-group-item"><span class="badge"><c:out
+							value="${drink.color}" /></span> appearance</li>
+			</ul>
+			<ul class="list-group">
+				<li class="list-group-item"><span class="badge"><c:out
+							value="${drink.alcholContent}" /></span> alcohol content</li>
+			</ul>
+			<ul class="list-group">
+				<li class="list-group-item"><span class="badge"><c:out
+							value="${drink.brewer}" /></span> brewer</li>
+			</ul>
+			<ul class="list-group">
+				<li class="list-group-item"><span class="badge"> <c:if
+							test="${drink.drinkType == 1}">
+							<c:out value="Ale" />
+						</c:if> <c:if test="${drink.drinkType == 2}">
+							<c:out value="IPA" />
+						</c:if> <c:if test="${drink.drinkType == 3}">
+							<c:out value="Lager" />
+						</c:if> <c:if test="${drink.drinkType == 4}">
+							<c:out value="Wheat" />
+						</c:if>
+				</span> Type of beer</li>
+			</ul>
+			<ul class="list-group">
+				<li class="list-group-item"><span class="badge"><c:out
+							value="${drink.ratingAvg}" /></span> Rating</li>
+			</ul>
+		</div>
+		<div class="main2">
 
 		<div class="list-group">
 			<a href="#" class="list-group-item active">
 				<h4 class="list-group-item-heading">Description:</h4>
-				<p class="list-group-item-text"><c:out value = "${drink.description}"/></p>
+				<p class="list-group-item-text"><c:out value = "${drink.description.description}"/></p>
 			</a>
+			<div>
+					<lable> Source:
+		<c:out value = "${drink.description.source}"/>
+		</lable>
+			</div>
 		</div>
 
 			<div class="list-group-item active">
 
-    <div class="row lead">
-        <p>Rate Beer</p>
-        <div id="stars-existing" class="starrr" data-rating='4'></div>
-        You gave a rating of <span id="count-existing">4</span> star(s)
-    </div>
-</div>
+			<div class="row lead">
+					<p>Rate Beer</p>
+
+					<div id="stars-existing" class="starrr" data-rating='0'></div>
+
+					You gave a rating of <span id="count-existing"><c:out value="${drink.ratingAvg}"/></span> star(s)
+				</div>
+			</div>
+
+
+
+
+		</div>
+
+
+
+		<div class="accordianthing"></div>
 	</div>
 	
-	
-	<div class="accordianthing"></div>
-</div>
-
-
-
 </body>
 </html>

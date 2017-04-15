@@ -47,7 +47,7 @@ public class DrinkSearchController {
 //		}
 		
 		//TABLE HEADER AND STYLE
-		str.append("<table class=table align=center border=1><thead class=thead-default><tr bgcolor=#b3b3cc align=center>");
+		str.append("<table class=table style=width:100% border=1><thead class=thead-default><tr bgcolor=#b3b3cc align=center>");
 		
 		//COLUMNS TO DISPLAY
 		str.append("<th style=text-align:center>BEER NAME</th>");

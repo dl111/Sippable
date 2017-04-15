@@ -23,11 +23,91 @@ body {
 #header{
 		color: white;
 }
+
+#list{
+	margin-right:100px;
+	margin-left:100px;
+}
+
+table.table tbody td {
+    color: #3D3D3D;
+    padding: 4px;
+    background-color: #FFF;
+    vertical-align: top;
+}
+table.table tbody tr.odd td {
+    background-color:#F0F0F6;
+}
+
+table th { width:150px;
+           border:1px outset gray;
+           background-color:#3C78B5;
+           color:White;
+           
+}
+table td { width:150px; border:1px solid gray;}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Top Ten</title>
+<link href="static/css/bootstraphome.css" rel="stylesheet"
+	type="text/css" media="all">
+<link href="static/css/stylehome.css" rel="stylesheet" type="text/css"
+	media="all" />
+	
+	<link rel="stylesheet" href="static/css/style.css">
+	
+	
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords"
+	content="Sippable" />
+<!-- <script type="application/x-javascript">
+	
+	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
+</script> -->
+
+
+
 </head>
+
 <body>
+
+	<!-- header -->
+	<div class="header">
+		<div class="container">
+			<div class="logo">
+				<a href="welcome"><img src="static/img/logo.png"
+					class="img-responsive" alt=""></a>
+			</div>
+
+			<div class="head-nav aleft">
+				<span class="menu"> </span>
+				<ul class="cl-effect-1">
+					<li class="active"><a href="welcome">Home</a></li>
+					<li><a href="allbeers">Find a Beer</a></li>
+					<li><a href="topten">Our top 10</a></li>
+					<li><a href="blog.html">Latest articles</a></li>
+					<li><a href="404.html">Your Profile</a></li>
+					<div class="clearfix"></div>
+				</ul>
+			</div>
+			<!-- script-for-nav -->
+			<script>
+				$("span.menu").click(function() {
+					$(".head-nav ul").slideToggle(300, function() {
+						// Animation complete.
+					});
+				});
+			</script>
+			<!-- script-for-nav -->
+
+
+
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<!-- header -->
 
 	<sql:setDataSource var="snapshot" driver="oracle.jdbc.driver.OracleDriver"
 	url="jdbc:oracle:thin:@sippablerds.csooorxl70nv.us-east-1.rds.amazonaws.com:1521:ORCL"
@@ -45,7 +125,8 @@ body {
 	
 	
 	<h2 align="center" id="header">Top Ten Drinks</h2>
-  <table class="table" align="center" border="1">
+	<div id="list">
+  <table class="table" align="center" border="1" style=width:100%>
   <thead class="thead-default">
     <tr bgcolor="#b3b3cc" align="center">
 	<th style="text-align:center">BEER NAME</th>
@@ -83,6 +164,7 @@ body {
    
   </tbody>
 </table>	
+</div>
 
 
 </body>

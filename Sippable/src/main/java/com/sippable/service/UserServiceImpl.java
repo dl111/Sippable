@@ -49,10 +49,11 @@ public class UserServiceImpl implements UserService{
 		Users user = dao.getUserByEmail(email);
 		return user;
 	}
-	
+
 	@Override
-	public void updateUser(Users user){
-		dao.updateUser(user);
+	public void changeUserRateing(int rate) {
+		// TODO Auto-generated method stub
+		 dao.changeUserRateing(rate);
 	}
 
 }

@@ -20,8 +20,6 @@ public class RegisterController {
 Users user;
 @Autowired
 UserServiceImpl userServ;
-@Autowired
-MailServiceImpl mailServ;
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public String getLoginPage(ModelMap modelMap, HttpServletRequest request){
@@ -40,14 +38,10 @@ MailServiceImpl mailServ;
 			user.setIsActive(1);
 			userServ.createNewUser(user);
 			System.out.println("username -> "+ username + "password -> "+ password + "email -> " +email);
-			
-			mailServ.send(email, "Thank you for registering!", "Thank you for signing up, " + firstName + " " + lastName + "\nYour username is " + username);
 
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		
-		
 
 		//modelMap.addAttribute("user", emptyUser);
 		return "index";

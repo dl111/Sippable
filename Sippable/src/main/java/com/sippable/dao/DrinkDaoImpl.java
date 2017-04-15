@@ -1,3 +1,5 @@
+
+
 package com.sippable.dao;
 
 import java.util.List;
@@ -80,10 +82,10 @@ public class DrinkDaoImpl implements DrinkDao{
 		}
 		Session sess = HibernateUtil.getSession();
 			if(isFirst){
-				str += " WHERE drinkName like :userSearch";
+				str += " WHERE lower(drinkName) like lower( :userSearch)";
 			}
 			else{
-				str += " AND drinkName like :userSearch";
+				str += " AND lower(drinkName) like lower( :userSearch )";
 			}
 			
 			//System.out.println(str);
@@ -91,12 +93,25 @@ public class DrinkDaoImpl implements DrinkDao{
 			//SQLQuery s = sess.createSQLQuery(str);
 			Query q = sess.createQuery(str);
 			q.setString("userSearch", search +"%");
-			System.out.println(q.getQueryString());
+			//System.out.println(q.getQueryString());
 			List<Drink> list = q.list();
 	        sess.close();
 	        return list;
 		//System.out.print(str);
 		
 	}
+	
+	public void updateDrink(Drink d){
+		Session sess = HibernateUtil.getSession();
+		Transaction tx = sess.beginTransaction();
+		sess.update(d);
+		sess.flush();
+		//List<Rating> ratings = q.list();
+		
+		tx.commit();
+		sess.close();
+		}
 
 }
+
+

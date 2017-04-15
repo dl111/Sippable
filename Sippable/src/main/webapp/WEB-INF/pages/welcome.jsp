@@ -10,6 +10,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 <head>
 <title>Sippable</title>
+
+
 <link href="static/css/bootstraphome.css" rel="stylesheet"
 	type="text/css" media="all">
 <link href="static/css/stylehome.css" rel="stylesheet" type="text/css"
@@ -18,6 +20,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords"
 	content="Sippable" />
+	
+	
 <script type="application/x-javascript">
 	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
