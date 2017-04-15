@@ -49,7 +49,7 @@ app.controller("initValCtrl", function($scope, $http){
 		var newlname = $scope.user.newlname;
 		$http({
 			  method: 'POST',
-			  url: 'Sippable/profilechangelname',
+			  url: 'profilechangelname',
 			  data: newlname
 			}).then(function successCallback(response) {
 				console.log(response);
