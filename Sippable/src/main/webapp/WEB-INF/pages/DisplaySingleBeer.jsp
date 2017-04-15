@@ -345,9 +345,11 @@ $( document ).ready(function() {
 
 			<div class="list-group-item active">
 
-				<div class="row lead">
+			<div class="row lead">
 					<p>Rate Beer</p>
-					<div id="stars-existing" class="starrr" data-rating='4'></div>
+
+					<div id="stars-existing" class="starrr" data-rating='0'></div>
+
 					You gave a rating of <span id="count-existing"><c:out value="${drink.ratingAvg}"/></span> star(s)
 				</div>
 			</div>
