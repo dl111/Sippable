@@ -10,7 +10,7 @@ app.controller("initValCtrl", function($scope, $http){
 	
 	$http({
 		  method: 'GET',
-		  url: 'http://localhost:8090/Sippables/profileinit'
+		  url: '34.200.225.32/Sippables/profileinit'
 		}).then(function successCallback(response) {
 			console.log(response);
 		    $scope.user = response.data;
@@ -23,7 +23,7 @@ app.controller("initValCtrl", function($scope, $http){
 		var newfname = $scope.user.newfname;
 		$http({
 			  method: 'POST',
-			  url: 'http://localhost:8090/Sippables/profilechangefname',
+			  url: '34.200.225.32/Sippables/profilechangefname',
 			  data: newfname
 			}).then(function successCallback(response) {
 				console.log(response);
@@ -49,7 +49,7 @@ app.controller("initValCtrl", function($scope, $http){
 		var newlname = $scope.user.newlname;
 		$http({
 			  method: 'POST',
-			  url: 'http://localhost:8090/Sippables/profilechangelname',
+			  url: '34.200.225.32/Sippables/profilechangelname',
 			  data: newlname
 			}).then(function successCallback(response) {
 				console.log(response);
@@ -57,7 +57,7 @@ app.controller("initValCtrl", function($scope, $http){
 			    
 			    $http({
 					  method: 'GET',
-					  url: 'http://localhost:8090/Sippables/profileinit'
+					  url: '34.200.225.32/Sippables/profileinit'
 					}).then(function successCallback(response) {
 						console.log(response);
 					    $scope.user = response.data;
@@ -76,7 +76,7 @@ app.controller("initValCtrl", function($scope, $http){
 		var newemail = $scope.user.newemail;
 		$http({
 			  method: 'POST',
-			  url: 'http://localhost:8090/Sippables/profilechangeemail',
+			  url: '34.200.225.32/Sippables/profilechangeemail',
 			  data: newemail
 			}).then(function successCallback(response) {
 				console.log(response);
@@ -103,7 +103,7 @@ app.controller("initValCtrl", function($scope, $http){
 		var newpassword = $scope.user.newpw;
 		$http({
 			  method: 'POST',
-			  url: 'http://localhost:8090/Sippables/profilechangefname',
+			  url: '34.200.225.32/Sippables/profilechangepw',
 			  data: newpassword
 			}).then(function successCallback(response) {
 				console.log(response);
@@ -111,7 +111,7 @@ app.controller("initValCtrl", function($scope, $http){
 			    
 			    $http({
 					  method: 'GET',
-					  url: 'http://localhost:8090/Sippables/profileinit'
+					  url: '34.200.225.32/Sippables/profileinit'
 					}).then(function successCallback(response) {
 						console.log(response);
 					    $scope.user = response.data;

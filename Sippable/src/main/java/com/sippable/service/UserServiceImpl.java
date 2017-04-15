@@ -56,4 +56,11 @@ public class UserServiceImpl implements UserService{
 		 dao.changeUserRateing(rate);
 	}
 
+	@Override
+	public void updateUser(Users user) {
+		// TODO Auto-generated method stub
+		dao.updateUser(user);
+		
+	}
+
 }

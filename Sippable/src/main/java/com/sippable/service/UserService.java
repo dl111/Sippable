@@ -12,5 +12,6 @@ public interface UserService {
 	public void changePassword(Users user, String newPass);
 	public Users getUserByEmail(String email);
 	public void changeUserRateing(int rate);
+	public void updateUser(Users user);
 }
 
