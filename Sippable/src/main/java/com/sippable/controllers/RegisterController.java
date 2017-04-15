@@ -1,20 +1,15 @@
 package com.sippable.controllers;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.sippable.*;
 import com.sippable.beans.Users;
-import com.sippable.service.UserService;
+import com.sippable.service.MailServiceImpl;
 import com.sippable.service.UserServiceImpl;
 
 
@@ -25,6 +20,8 @@ public class RegisterController {
 Users user;
 @Autowired
 UserServiceImpl userServ;
+@Autowired
+MailServiceImpl mailServ;
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public String getLoginPage(ModelMap modelMap, HttpServletRequest request){
@@ -43,10 +40,14 @@ UserServiceImpl userServ;
 			user.setIsActive(1);
 			userServ.createNewUser(user);
 			System.out.println("username -> "+ username + "password -> "+ password + "email -> " +email);
+			
+			mailServ.send(email, "Thank you for registering!", "Thank you for signing up, " + firstName + " " + lastName + "\nYour username is " + username);
 
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
+		
+		
 
 		//modelMap.addAttribute("user", emptyUser);
 		return "index";

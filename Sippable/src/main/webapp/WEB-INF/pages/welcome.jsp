@@ -60,10 +60,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<li><a href="allbeers">Find a Beer</a></li>
 					<li><a href="topten">Our top 10</a></li>
 					<li><a href="blog.html">Latest articles</a></li>
-					<li><a href="404.html">Your Profile</a></li>
+					<li><a href="profile">Your Profile</a></li>
 					<div class="clearfix"></div>
 				</ul>
 			</div>
+			
 			<!-- script-for-nav -->
 			<script>
 				$("span.menu").click(function() {

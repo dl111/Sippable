@@ -10,4 +10,5 @@ public interface UserService {
 	public boolean isAuth(String email, String pass);
 	public void changePassword(Users user, String newPass);
 	public Users getUserByEmail(String email);
+	public void updateUser(Users user);
 }

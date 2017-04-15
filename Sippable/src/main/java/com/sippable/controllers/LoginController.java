@@ -52,19 +52,22 @@ public class LoginController {
 	@RequestMapping(method = RequestMethod.POST ,value = "/login")
 	public String doLogin(ModelMap modelMap, HttpSession session,HttpServletRequest request ){
 		System.out.println(modelMap.isEmpty());
-	String email=(String)	request.getParameter("email");
-	String password =(String) 	request.getParameter("password");
-	//	modelMap.addAttribute("users", user);
-System.out.println("Email -> " + email + "Password -> " + password);
-System.out.println(modelMap.get("user"));
- boolean isauth = userService.isAuth(email, password);
+		String email = (String) request.getParameter("email");
+		String password = (String) request.getParameter("password");
+		// modelMap.addAttribute("users", user);
+		System.out.println("Email -> " + email + "Password -> " + password);
+		System.out.println(modelMap.get("user"));
+		boolean isauth = userService.isAuth(email, password);
+		user = userService.getUserByEmail(email);
  if(isauth == true)
  {
-
-
+	 session.setAttribute("user", user);
+	 if((int)user.getTypeid() == 3){
+		 return "admindash";
+	 }
 	 
 
-	
+	 session.setAttribute("user", user);
 	 return "welcome";
 
  }

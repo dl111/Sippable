@@ -49,5 +49,10 @@ public class UserServiceImpl implements UserService{
 		Users user = dao.getUserByEmail(email);
 		return user;
 	}
+	
+	@Override
+	public void updateUser(Users user){
+		dao.updateUser(user);
+	}
 
 }
