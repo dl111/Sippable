@@ -242,8 +242,8 @@ $( document ).ready(function() {
 					<li class="active"><a href="../welcome">Home</a></li>
 					<li><a href="../allbeers">Find a Beer</a></li>
 					<li><a href="../topten">Our top 10</a></li>
-					<li><a href="blog.html">Latest articles</a></li>
-					<li><a href="404.html">Your Profile</a></li>
+					<li><a href="http://34.200.225.32/Sippable/profile">Your Profile</a></li>
+					<li><a href="http://34.200.225.32/Sippable/">Log Out</a></li>
 					<div class="clearfix"></div>
 				</ul>
 			</div>
