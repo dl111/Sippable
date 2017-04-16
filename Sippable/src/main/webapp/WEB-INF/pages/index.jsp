@@ -53,7 +53,8 @@
 			<ul>
 
 				<!-- inser more links here -->
-				<li><a class="aleft" href="">Sippables</a></li>
+				
+				<li><a class="aleft" href=""><img src="static/img/logo.png" class="img-responsive" alt=""></a></li>
 				<li class="aright"><a class="cd-signin" href="#0">Sign in</a></li>
 				<li class="aright"><a class="cd-signup" href="#0">Sign up</a></li>
 			</ul>
