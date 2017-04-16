@@ -171,7 +171,7 @@
 			<div id="cd-reset-password">
 				<!-- reset password form -->
 				<p class="cd-form-message">Lost your password? Please enter your
-					email address. You will receive a link to create a new password.</p>
+					email address.</p>
 
 				<form class="cd-form" action="forgotpassword" method="POST">
 					<p class="fieldset">
