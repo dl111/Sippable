@@ -64,7 +64,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<li><a href="allbeers">Find a Beer</a></li>
 					<li><a href="topten">Our top 10</a></li>
 					<li><a href="profile">Your Profile</a></li>
-					<li><a href="http://34.200.225.32/Sippable/">Log Out</a></li>
+					<li><a href="http://52.203.0.141/Sippable/">Log Out</a></li>
 					<div class="clearfix"></div>
 				</ul>
 			</div>
