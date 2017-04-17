@@ -19,7 +19,7 @@ public class UserDaoImpl implements UserDao{
 		
 		Session sess = HibernateUtil.getSession();
 		Users user = (Users)sess.get(Users.class, id);
-		
+		sess.close();
 		return user;
 	}
 
@@ -32,6 +32,7 @@ public class UserDaoImpl implements UserDao{
         Criterion c1 = Restrictions.eq("email",email);
        cr.add(c1);
        Users user = (Users) cr.uniqueResult();
+		sess.close();
 		return user;
 	}
 
