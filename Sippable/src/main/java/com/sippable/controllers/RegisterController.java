@@ -20,15 +20,20 @@ public class RegisterController {
 Users user;
 @Autowired
 UserServiceImpl userServ;
+@Autowired
+MailServiceImpl mailServ;
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public String getLoginPage(ModelMap modelMap, HttpServletRequest request){
+		String firstName = "";
+		String lastName = "";
+		String email = "";
 		try {
 			String username = (String) request.getParameter("username");
 			String password =(String)request.getParameter("password");
-			String email =(String)request.getParameter("email");
-			String lastName =(String)request.getParameter("lastname");
-			String firstName =(String)request.getParameter("firstname");
+			email =(String)request.getParameter("email");
+			lastName =(String)request.getParameter("lastname");
+			firstName =(String)request.getParameter("firstname");
 			user.setLastName(lastName);
 			user.setFirstName(firstName);
 			user.setUsername(username);
@@ -44,6 +49,8 @@ UserServiceImpl userServ;
 		}
 
 		//modelMap.addAttribute("user", emptyUser);
+		String message = "Hello " + firstName + " " + lastName + ",\n		Welcome to Sippable. Prepare yourself as you dive int a word of \nBEEEEEEEEEEEEEEEEEEEEEEEERRRRRRRRRRRRRRRRRRRRRRRRRRRRRR";
+		mailServ.send(email, "Welcome to Sippable!", message);
 		return "index";
 	}
 	
